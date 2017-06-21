@@ -1,0 +1,9 @@
+C:\Users\Luis\Documents\3ATICS\csharp\integradora\integradora\bin\Debug\integradora.exe.config
+C:\Users\Luis\Documents\3ATICS\csharp\integradora\integradora\bin\Debug\integradora.exe
+C:\Users\Luis\Documents\3ATICS\csharp\integradora\integradora\bin\Debug\integradora.pdb
+C:\Users\Luis\Documents\3ATICS\csharp\integradora\integradora\obj\Debug\integradora.csprojResolveAssemblyReference.cache
+C:\Users\Luis\Documents\3ATICS\csharp\integradora\integradora\obj\Debug\integradora.Form1.resources
+C:\Users\Luis\Documents\3ATICS\csharp\integradora\integradora\obj\Debug\integradora.Properties.Resources.resources
+C:\Users\Luis\Documents\3ATICS\csharp\integradora\integradora\obj\Debug\integradora.csproj.GenerateResource.Cache
+C:\Users\Luis\Documents\3ATICS\csharp\integradora\integradora\obj\Debug\integradora.exe
+C:\Users\Luis\Documents\3ATICS\csharp\integradora\integradora\obj\Debug\integradora.pdb
