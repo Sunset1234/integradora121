@@ -1,0 +1,10 @@
+c:\users\emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\bin\Debug\Punto de venta.exe.config
+c:\users\emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\bin\Debug\Punto de venta.exe
+c:\users\emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\bin\Debug\Punto de venta.pdb
+c:\users\emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\obj\Debug\Punto de venta.csprojResolveAssemblyReference.cache
+c:\users\emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\obj\Debug\Punto_de_venta.Form1.resources
+c:\users\emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\obj\Debug\Punto_de_venta.Properties.Resources.resources
+c:\users\emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\obj\Debug\Punto de venta.csproj.GenerateResource.Cache
+c:\users\emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\obj\Debug\Punto de venta.exe
+c:\users\emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\obj\Debug\Punto de venta.pdb
+C:\Users\Emmanuel\Documents\Visual Studio 2017\Projects\Punto de venta\Punto de venta\obj\Debug\Punto_de_venta.Cobro_Form.resources
