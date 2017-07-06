@@ -8,3 +8,4 @@ c:\users\emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de 
 c:\users\emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\obj\Debug\Punto de venta.exe
 c:\users\emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\obj\Debug\Punto de venta.pdb
 C:\Users\Emmanuel\Documents\Visual Studio 2017\Projects\Punto de venta\Punto de venta\obj\Debug\Punto_de_venta.Cobro_Form.resources
+C:\Users\Emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\bin\Debug\MySql.Data.dll

@@ -61,6 +61,7 @@ namespace Punto_de_venta
         private void Form1_Load(object sender, EventArgs e)
         {
             texboxpcodigo.Text = "WEY";
+            //WindowState = MaximumSize;
         }
 
         private void label15_Click(object sender, EventArgs e)
@@ -69,6 +70,43 @@ namespace Punto_de_venta
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Bdcomun.ObtenerConexion();
+            MessageBox.Show("conectado");
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cliente Pcliente = new cliente();
+            Pcliente.Idcliente = int.Parse(tbxid.Text);
+            Pcliente.Nombre = tbxname.Text;
+            Pcliente.Apaterno = tbxapaterno.Text;
+            Pcliente.Amaterno = tbxamaterno.Text;
+            Pcliente.Dirección = tbxdir.Text;
+            Pcliente.Telefono = int.Parse(tbxtel.Text);
+            
+            int resultado = ClienteDAL.Agregar(Pcliente);
+            if (resultado > 0)
+            {
+                MessageBox.Show("¡Clientre guardado con exito!");
+            }
+            else {
+                MessageBox.Show("No se pudo agregar el cliente");
+            }
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
         {
 
         }
