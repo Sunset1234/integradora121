@@ -60,7 +60,7 @@ namespace Punto_de_venta
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            texboxpcodigo.Text = "WEY";
+            tbxcode.Text = "WEY";
             //WindowState = MaximumSize;
         }
 
