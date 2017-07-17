@@ -16,5 +16,5 @@ namespace Punto_de_venta
             return conectar;
         }
 
-    }
+     }
 }

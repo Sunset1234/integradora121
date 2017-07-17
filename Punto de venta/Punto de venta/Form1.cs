@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Punto_de_venta
 {
@@ -57,11 +58,32 @@ namespace Punto_de_venta
         {
             
         }
+      
+        //List<departamento> Ldepartamento = new List<departamento>();
+        //departamento n;
+        //public MySqlConnection Cnn = new MySqlConnection();
+        //Bdcomun conexión;
+        //string nom;
+        //string stConsulta = "";
+        //string Conexión = "server=127.0.0.1; database=puntodeventa; Uid=root; pwd=;";
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            tbxcode.Text = "WEY";
-            //WindowState = MaximumSize;
+            try
+            {
+                departamento a = new departamento();
+                a.ListaDep();
+                cbxdepart.DataSource = a.getLista();
+                cbxdepart.DisplayMember = "nombre";
+                cbxdepart.ValueMember = "Id";
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
         }
 
         private void label15_Click(object sender, EventArgs e)
@@ -90,15 +112,16 @@ namespace Punto_de_venta
             cliente Pcliente = new cliente();
             Pcliente.Idcliente = int.Parse(tbxid.Text);
             Pcliente.Nombre = tbxname.Text;
-            Pcliente.Apaterno = tbxapaterno.Text;
-            Pcliente.Amaterno = tbxamaterno.Text;
+            Pcliente.Apaterno = tbxamaterno.Text;
+            Pcliente.Amaterno = tbxapaterno.Text;
             Pcliente.Dirección = tbxdir.Text;
             Pcliente.Telefono = int.Parse(tbxtel.Text);
+
             
-            int resultado = ClienteDAL.Agregar(Pcliente);
+            int resultado = Comandos.AgregarCliente(Pcliente);
             if (resultado > 0)
             {
-                MessageBox.Show("¡Clientre guardado con exito!");
+                MessageBox.Show("¡Cliente guardado con exito!");
             }
             else {
                 MessageBox.Show("No se pudo agregar el cliente");
@@ -110,5 +133,49 @@ namespace Punto_de_venta
         {
 
         }
+
+        private void lblprecosto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnaddprod_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            producto pProducto = new producto();
+            pProducto.Codebar = int.Parse(tbxcode.Text);
+            pProducto.Nombre = tbxnombre.Text.ToString();
+            pProducto.Descripcion = tbxdesc.Text.ToString();
+            pProducto.Cantactual =int.Parse(tbxcanactual.Text);
+            pProducto.Precosto = double.Parse(tbxprecost.Text);
+            pProducto.Preventa = double.Parse(tbxpreventa.Text);
+            pProducto.Departamento = cbxdepart.Text.ToString();
+
+            int resultado = Comandos.AgregarProductos(pProducto);
+            if (resultado > 0)
+            {
+                MessageBox.Show("¡Producto guardado con exito!");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo guardar el cliente");
+            }
+        }
+
+        private void cbxdepart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

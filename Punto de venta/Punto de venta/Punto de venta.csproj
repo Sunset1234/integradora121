@@ -51,13 +51,14 @@
   <ItemGroup>
     <Compile Include="Bdcomun.cs" />
     <Compile Include="cliente.cs" />
-    <Compile Include="ClienteDAL.cs" />
     <Compile Include="Cobro Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cobro Form.Designer.cs">
       <DependentUpon>Cobro Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Comandos.cs" />
+    <Compile Include="departamento.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
