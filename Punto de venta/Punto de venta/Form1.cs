@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace Punto_de_venta
 {
-    public partial class Form1 : Form
+    public partial class form1 : Form
     {
-        public Form1()
+        public form1()
         {
             InitializeComponent();
         }
@@ -176,6 +176,9 @@ namespace Punto_de_venta
 
         }
 
+        private void lblcantregistro_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
