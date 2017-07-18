@@ -69,6 +69,7 @@ namespace Punto_de_venta
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             try
             {
                 departamento a = new departamento();
@@ -78,9 +79,9 @@ namespace Punto_de_venta
                 cbxdepart.ValueMember = "Id";
 
             }
-            catch (Exception)
+            catch (Exception a)
             {
-
+                MessageBox.Show(a.ToString());
                 throw;
             }
            
@@ -179,6 +180,20 @@ namespace Punto_de_venta
         private void lblcantregistro_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabControl2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+
+        private void form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.V))
+            {
+                tabControl2.SelectedTab == tabControl2.TabPages[ticket2];
+            }
         }
     }
 }

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form1));
             this.tabprincipal = new System.Windows.Forms.TabControl();
             this.tabventas = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.ticket1 = new System.Windows.Forms.TabPage();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button4 = new System.Windows.Forms.Button();
@@ -45,13 +45,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.ticket2 = new System.Windows.Forms.TabPage();
             this.tabproductos = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -97,10 +93,14 @@
             this.tbxname = new System.Windows.Forms.TextBox();
             this.lblname = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabprincipal.SuspendLayout();
             this.tabventas.SuspendLayout();
             this.tabControl2.SuspendLayout();
-            this.tabPage6.SuspendLayout();
+            this.ticket1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabproductos.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -117,70 +117,73 @@
             this.tabprincipal.Controls.Add(this.tabcortecaja);
             this.tabprincipal.Controls.Add(this.tabcliente);
             this.tabprincipal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabprincipal.HotTrack = true;
             this.tabprincipal.ImageList = this.imageList1;
-            this.tabprincipal.ItemSize = new System.Drawing.Size(49, 60);
+            this.tabprincipal.ItemSize = new System.Drawing.Size(51, 56);
             this.tabprincipal.Location = new System.Drawing.Point(0, 0);
             this.tabprincipal.Multiline = true;
             this.tabprincipal.Name = "tabprincipal";
             this.tabprincipal.SelectedIndex = 0;
-            this.tabprincipal.Size = new System.Drawing.Size(876, 475);
+            this.tabprincipal.Size = new System.Drawing.Size(1367, 719);
             this.tabprincipal.TabIndex = 0;
             // 
             // tabventas
             // 
-            this.tabventas.BackColor = System.Drawing.Color.DimGray;
+            this.tabventas.BackColor = System.Drawing.Color.Transparent;
             this.tabventas.Controls.Add(this.tabControl2);
             this.tabventas.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabventas.ForeColor = System.Drawing.Color.DarkGray;
+            this.tabventas.ForeColor = System.Drawing.Color.Black;
             this.tabventas.ImageIndex = 0;
-            this.tabventas.Location = new System.Drawing.Point(4, 64);
+            this.tabventas.Location = new System.Drawing.Point(4, 60);
             this.tabventas.Name = "tabventas";
             this.tabventas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabventas.Size = new System.Drawing.Size(868, 407);
+            this.tabventas.Size = new System.Drawing.Size(1359, 655);
             this.tabventas.TabIndex = 0;
             this.tabventas.Text = "Ventas";
             this.tabventas.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // tabControl2
             // 
-            this.tabControl2.Controls.Add(this.tabPage6);
-            this.tabControl2.Controls.Add(this.tabPage7);
+            this.tabControl2.Controls.Add(this.ticket1);
+            this.tabControl2.Controls.Add(this.ticket2);
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(851, 411);
+            this.tabControl2.Size = new System.Drawing.Size(1359, 651);
             this.tabControl2.TabIndex = 20;
+            this.tabControl2.TabStop = false;
+            this.tabControl2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabControl2_KeyPress);
             // 
-            // tabPage6
+            // ticket1
             // 
-            this.tabPage6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(140)))));
-            this.tabPage6.Controls.Add(this.radioButton2);
-            this.tabPage6.Controls.Add(this.radioButton1);
-            this.tabPage6.Controls.Add(this.button4);
-            this.tabPage6.Controls.Add(this.button3);
-            this.tabPage6.Controls.Add(this.textBox5);
-            this.tabPage6.Controls.Add(this.label4);
-            this.tabPage6.Controls.Add(this.textBox8);
-            this.tabPage6.Controls.Add(this.label5);
-            this.tabPage6.Controls.Add(this.textBox6);
-            this.tabPage6.Controls.Add(this.dataGridView2);
-            this.tabPage6.Controls.Add(this.label6);
-            this.tabPage6.Controls.Add(this.textBox7);
-            this.tabPage6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage6.ForeColor = System.Drawing.Color.Black;
-            this.tabPage6.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf;
-            this.tabPage6.Location = new System.Drawing.Point(4, 29);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(843, 378);
-            this.tabPage6.TabIndex = 0;
-            this.tabPage6.Text = "Ticket 1";
+            this.ticket1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.ticket1.Controls.Add(this.radioButton2);
+            this.ticket1.Controls.Add(this.radioButton1);
+            this.ticket1.Controls.Add(this.button4);
+            this.ticket1.Controls.Add(this.button3);
+            this.ticket1.Controls.Add(this.textBox5);
+            this.ticket1.Controls.Add(this.label4);
+            this.ticket1.Controls.Add(this.textBox8);
+            this.ticket1.Controls.Add(this.label5);
+            this.ticket1.Controls.Add(this.textBox6);
+            this.ticket1.Controls.Add(this.dataGridView2);
+            this.ticket1.Controls.Add(this.label6);
+            this.ticket1.Controls.Add(this.textBox7);
+            this.ticket1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ticket1.ForeColor = System.Drawing.Color.Black;
+            this.ticket1.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf;
+            this.ticket1.Location = new System.Drawing.Point(4, 29);
+            this.ticket1.Name = "ticket1";
+            this.ticket1.Padding = new System.Windows.Forms.Padding(3);
+            this.ticket1.Size = new System.Drawing.Size(1351, 618);
+            this.ticket1.TabIndex = 0;
+            this.ticket1.Text = "Ticket 1";
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.radioButton2.Location = new System.Drawing.Point(843, 259);
+            this.radioButton2.Location = new System.Drawing.Point(1131, 291);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(161, 24);
             this.radioButton2.TabIndex = 21;
@@ -192,7 +195,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(680, 259);
+            this.radioButton1.Location = new System.Drawing.Point(1015, 273);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(91, 24);
             this.radioButton1.TabIndex = 20;
@@ -216,7 +219,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(760, 314);
+            this.button3.Location = new System.Drawing.Point(1171, 343);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 48);
             this.button3.TabIndex = 13;
@@ -226,7 +229,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(782, 192);
+            this.textBox5.Location = new System.Drawing.Point(1044, 225);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(133, 26);
             this.textBox5.TabIndex = 16;
@@ -234,7 +237,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(684, 195);
+            this.label4.Location = new System.Drawing.Point(915, 240);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 20);
             this.label4.TabIndex = 19;
@@ -253,7 +256,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(684, 154);
+            this.label5.Location = new System.Drawing.Point(918, 176);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 20);
             this.label5.TabIndex = 18;
@@ -261,18 +264,21 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(782, 151);
+            this.textBox6.Location = new System.Drawing.Point(1060, 173);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(133, 26);
             this.textBox6.TabIndex = 15;
             // 
             // dataGridView2
             // 
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -281,42 +287,19 @@
             this.cantidad,
             this.precio});
             this.dataGridView2.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.dataGridView2.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridView2.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView2.Location = new System.Drawing.Point(25, 65);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(646, 346);
+            this.dataGridView2.Size = new System.Drawing.Size(837, 519);
             this.dataGridView2.TabIndex = 10;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // codigo
-            // 
-            this.codigo.HeaderText = "Código";
-            this.codigo.Name = "codigo";
-            this.codigo.Width = 200;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.Width = 200;
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.Width = 120;
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.Width = 126;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(677, 117);
+            this.label6.Location = new System.Drawing.Point(930, 123);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 20);
             this.label6.TabIndex = 17;
@@ -324,20 +307,20 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(782, 114);
+            this.textBox7.Location = new System.Drawing.Point(1028, 117);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(133, 26);
             this.textBox7.TabIndex = 14;
             // 
-            // tabPage7
+            // ticket2
             // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 29);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1130, 456);
-            this.tabPage7.TabIndex = 1;
-            this.tabPage7.Text = "Ticket 2";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.ticket2.Location = new System.Drawing.Point(4, 29);
+            this.ticket2.Name = "ticket2";
+            this.ticket2.Padding = new System.Windows.Forms.Padding(3);
+            this.ticket2.Size = new System.Drawing.Size(1351, 618);
+            this.ticket2.TabIndex = 1;
+            this.ticket2.Text = "Ticket 2";
+            this.ticket2.UseVisualStyleBackColor = true;
             // 
             // tabproductos
             // 
@@ -348,10 +331,10 @@
             this.tabproductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabproductos.ForeColor = System.Drawing.Color.Black;
             this.tabproductos.ImageIndex = 1;
-            this.tabproductos.Location = new System.Drawing.Point(4, 44);
+            this.tabproductos.Location = new System.Drawing.Point(4, 60);
             this.tabproductos.Name = "tabproductos";
             this.tabproductos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabproductos.Size = new System.Drawing.Size(856, 427);
+            this.tabproductos.Size = new System.Drawing.Size(1359, 655);
             this.tabproductos.TabIndex = 1;
             this.tabproductos.Text = "Productos";
             this.tabproductos.Click += new System.EventHandler(this.tabPage2_Click);
@@ -376,7 +359,7 @@
             this.panel1.Controls.Add(this.cbxdepart);
             this.panel1.Controls.Add(this.tbxdesc);
             this.panel1.Controls.Add(this.lblprecosto);
-            this.panel1.Location = new System.Drawing.Point(9, 62);
+            this.panel1.Location = new System.Drawing.Point(17, 122);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(678, 466);
             this.panel1.TabIndex = 18;
@@ -555,9 +538,10 @@
             this.tabiventario.Controls.Add(this.textBox11);
             this.tabiventario.Controls.Add(this.label12);
             this.tabiventario.ForeColor = System.Drawing.Color.Black;
-            this.tabiventario.Location = new System.Drawing.Point(4, 44);
+            this.tabiventario.ImageIndex = 2;
+            this.tabiventario.Location = new System.Drawing.Point(4, 60);
             this.tabiventario.Name = "tabiventario";
-            this.tabiventario.Size = new System.Drawing.Size(856, 427);
+            this.tabiventario.Size = new System.Drawing.Size(1359, 655);
             this.tabiventario.TabIndex = 2;
             this.tabiventario.Text = "Inventario";
             this.tabiventario.UseVisualStyleBackColor = true;
@@ -624,9 +608,10 @@
             // 
             // tabcortecaja
             // 
-            this.tabcortecaja.Location = new System.Drawing.Point(4, 44);
+            this.tabcortecaja.ImageIndex = 3;
+            this.tabcortecaja.Location = new System.Drawing.Point(4, 60);
             this.tabcortecaja.Name = "tabcortecaja";
-            this.tabcortecaja.Size = new System.Drawing.Size(856, 427);
+            this.tabcortecaja.Size = new System.Drawing.Size(1359, 655);
             this.tabcortecaja.TabIndex = 3;
             this.tabcortecaja.Text = "Corte de caja";
             this.tabcortecaja.UseVisualStyleBackColor = true;
@@ -647,16 +632,17 @@
             this.tabcliente.Controls.Add(this.tbxname);
             this.tabcliente.Controls.Add(this.lblname);
             this.tabcliente.ForeColor = System.Drawing.Color.Black;
-            this.tabcliente.Location = new System.Drawing.Point(4, 44);
+            this.tabcliente.ImageIndex = 4;
+            this.tabcliente.Location = new System.Drawing.Point(4, 60);
             this.tabcliente.Name = "tabcliente";
-            this.tabcliente.Size = new System.Drawing.Size(856, 427);
+            this.tabcliente.Size = new System.Drawing.Size(1359, 655);
             this.tabcliente.TabIndex = 4;
             this.tabcliente.Text = "Clientes";
             this.tabcliente.UseVisualStyleBackColor = true;
             // 
             // tbxid
             // 
-            this.tbxid.Location = new System.Drawing.Point(166, 32);
+            this.tbxid.Location = new System.Drawing.Point(216, 32);
             this.tbxid.Name = "tbxid";
             this.tbxid.Size = new System.Drawing.Size(185, 27);
             this.tbxid.TabIndex = 12;
@@ -719,28 +705,28 @@
             // 
             // tbxtel
             // 
-            this.tbxtel.Location = new System.Drawing.Point(166, 255);
+            this.tbxtel.Location = new System.Drawing.Point(216, 252);
             this.tbxtel.Name = "tbxtel";
             this.tbxtel.Size = new System.Drawing.Size(185, 27);
             this.tbxtel.TabIndex = 5;
             // 
             // tbxdir
             // 
-            this.tbxdir.Location = new System.Drawing.Point(166, 209);
+            this.tbxdir.Location = new System.Drawing.Point(216, 209);
             this.tbxdir.Name = "tbxdir";
             this.tbxdir.Size = new System.Drawing.Size(185, 27);
             this.tbxdir.TabIndex = 4;
             // 
             // tbxamaterno
             // 
-            this.tbxamaterno.Location = new System.Drawing.Point(166, 163);
+            this.tbxamaterno.Location = new System.Drawing.Point(216, 163);
             this.tbxamaterno.Name = "tbxamaterno";
             this.tbxamaterno.Size = new System.Drawing.Size(185, 27);
             this.tbxamaterno.TabIndex = 3;
             // 
             // tbxapaterno
             // 
-            this.tbxapaterno.Location = new System.Drawing.Point(166, 116);
+            this.tbxapaterno.Location = new System.Drawing.Point(216, 116);
             this.tbxapaterno.Name = "tbxapaterno";
             this.tbxapaterno.Size = new System.Drawing.Size(185, 27);
             this.tbxapaterno.TabIndex = 2;
@@ -748,7 +734,7 @@
             // 
             // tbxname
             // 
-            this.tbxname.Location = new System.Drawing.Point(166, 70);
+            this.tbxname.Location = new System.Drawing.Point(216, 70);
             this.tbxname.Name = "tbxname";
             this.tbxname.Size = new System.Drawing.Size(185, 27);
             this.tbxname.TabIndex = 1;
@@ -768,6 +754,37 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "ventas.png");
             this.imageList1.Images.SetKeyName(1, "productos.png");
+            this.imageList1.Images.SetKeyName(2, "inventario.png");
+            this.imageList1.Images.SetKeyName(3, "ccaja.png");
+            this.imageList1.Images.SetKeyName(4, "cliente.png");
+            // 
+            // codigo
+            // 
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Width = 260;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 240;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            this.cantidad.Width = 170;
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            this.precio.Width = 165;
             // 
             // form1
             // 
@@ -775,7 +792,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1134, 713);
+            this.ClientSize = new System.Drawing.Size(1358, 731);
             this.Controls.Add(this.tabprincipal);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -786,12 +803,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "s";
             this.TransparencyKey = System.Drawing.Color.Goldenrod;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.form1_KeyPress);
             this.tabprincipal.ResumeLayout(false);
             this.tabventas.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
+            this.ticket1.ResumeLayout(false);
+            this.ticket1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabproductos.ResumeLayout(false);
             this.tabproductos.PerformLayout();
@@ -824,8 +843,8 @@
         private System.Windows.Forms.TabPage tabcortecaja;
         private System.Windows.Forms.TabPage tabcliente;
         private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage ticket1;
+        private System.Windows.Forms.TabPage ticket2;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label11;
@@ -856,10 +875,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblcliente;
         private System.Windows.Forms.TextBox tbxid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbxcanreg;
         private System.Windows.Forms.TextBox tbxpreventa;
@@ -873,6 +888,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
     }
 }
 
