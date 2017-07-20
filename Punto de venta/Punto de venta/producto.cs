@@ -33,9 +33,9 @@ namespace Punto_de_venta
             set { descripcion = value; }
         }
 
-        private string departamento;
+        private int departamento;
 
-        public string Departamento
+        public int Departamento
         {
             get { return departamento; }
             set { departamento = value; }
@@ -76,7 +76,7 @@ namespace Punto_de_venta
 
         public producto() { }
 
-        public producto(int codebar,string nombre, string desc, int cantactual, double precosto, double preventa, string departamento)
+        public producto(int codebar,string nombre, string desc, int cantactual, double precosto, double preventa, int departamento)
         {
             this.codebar = codebar;
             this.nombre = nombre;

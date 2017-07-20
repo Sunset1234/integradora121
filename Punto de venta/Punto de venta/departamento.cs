@@ -26,7 +26,6 @@ namespace Punto_de_venta
         }
 
         string Consulta;
-        string Consulta2;
         List<departamento> Ldepartamento = new List<departamento>();
         departamento n;
 
@@ -36,8 +35,7 @@ namespace Punto_de_venta
             {
                 Bdcomun.ObtenerConexion();
 
-                Consulta = "select nombre from departamento";
-                Consulta2 = "select iddepartamento from departamento";
+                Consulta = "select nombre,iddepartamento from departamento";
                 MySqlCommand mycomand = new MySqlCommand();
                 mycomand.Connection = Bdcomun.ObtenerConexion();
                 mycomand.CommandText = Consulta;
@@ -45,30 +43,13 @@ namespace Punto_de_venta
 
 
                 while (reader.Read())
-                {
-                    //reader.Read();
+                { 
                     string nom = reader["nombre"].ToString();
-                    //reader.Close();
-                  //  mycomand.CommandText = Consulta2;
-                   // MySqlDataReader read = mycomand.ExecuteReader();
-                    //string inte = read["iddepartamento"].ToString();
-                    //read.Close();
-                    n = new departamento() { Nombre = nom/*,Id=int.Parse(inte)*/};
+                    string iddeps = reader["iddepartamento"].ToString();
+                    n = new departamento() { Nombre = nom,Id=int.Parse(iddeps)};
                     Ldepartamento.Add(n);
                 }
                 reader.Close();
-
-                
-
-                //while (read.Read())
-                //{
-                //    mycomand.CommandText = Consulta2;
-                //    MySqlDataReader read = mycomand.ExecuteReader();
-                //    string inte = read["iddepartamento"].ToString();
-
-                //    string inte = read["iddepartamento"].ToString();
-                //    n.Id= int.Parse(inte);
-                //}
             }
             catch (Exception)
             {

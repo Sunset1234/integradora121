@@ -23,8 +23,8 @@ namespace Punto_de_venta
         {
             int retorno = 0;
 
-            MySqlCommand comando = new MySqlCommand(string.Format("Insert into productos (idproducto,nombre,descripcion,cantidadstock,preciocosto,precioventa) values ('{0}','{1}','{2}','{3}','{4}','{5}')",
-            pProducto.Codebar,pProducto.Nombre,pProducto.Descripcion,pProducto.Cantactual,pProducto.Precosto,pProducto.Preventa), Bdcomun.ObtenerConexion());
+            MySqlCommand comando = new MySqlCommand(string.Format("Insert into productos (idproducto,nombre,descripcion,cantidadstock,preciocosto,precioventa,departamento) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+            pProducto.Codebar,pProducto.Nombre,pProducto.Descripcion,pProducto.Cantactual,pProducto.Precosto,pProducto.Preventa,pProducto.Departamento), Bdcomun.ObtenerConexion());
             retorno = comando.ExecuteNonQuery();
             return retorno;
 

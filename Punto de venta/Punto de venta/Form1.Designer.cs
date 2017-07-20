@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form1));
             this.tabprincipal = new System.Windows.Forms.TabControl();
             this.tabventas = new System.Windows.Forms.TabPage();
@@ -45,11 +45,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.ticket2 = new System.Windows.Forms.TabPage();
             this.tabproductos = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnaddproducto = new System.Windows.Forms.Button();
+            this.panelfproductos = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tbxcode = new System.Windows.Forms.TextBox();
@@ -67,7 +73,6 @@
             this.cbxdepart = new System.Windows.Forms.ComboBox();
             this.tbxdesc = new System.Windows.Forms.TextBox();
             this.lblprecosto = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabiventario = new System.Windows.Forms.TabPage();
             this.label15 = new System.Windows.Forms.Label();
@@ -93,19 +98,22 @@
             this.tbxname = new System.Windows.Forms.TextBox();
             this.lblname = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnmodificarproduc = new System.Windows.Forms.Button();
+            this.panelmodificar = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbxmodproduc = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabprincipal.SuspendLayout();
             this.tabventas.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.ticket1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabproductos.SuspendLayout();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelfproductos.SuspendLayout();
             this.tabiventario.SuspendLayout();
             this.tabcliente.SuspendLayout();
+            this.panelmodificar.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabprincipal
@@ -273,9 +281,9 @@
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -295,6 +303,34 @@
             this.dataGridView2.Size = new System.Drawing.Size(837, 519);
             this.dataGridView2.TabIndex = 10;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // codigo
+            // 
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Width = 260;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 240;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            this.cantidad.Width = 170;
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            this.precio.Width = 165;
             // 
             // label6
             // 
@@ -325,8 +361,11 @@
             // tabproductos
             // 
             this.tabproductos.BackColor = System.Drawing.Color.Khaki;
-            this.tabproductos.Controls.Add(this.panel1);
-            this.tabproductos.Controls.Add(this.label11);
+            this.tabproductos.Controls.Add(this.panelmodificar);
+            this.tabproductos.Controls.Add(this.btnmodificarproduc);
+            this.tabproductos.Controls.Add(this.pictureBox1);
+            this.tabproductos.Controls.Add(this.btnaddproducto);
+            this.tabproductos.Controls.Add(this.panelfproductos);
             this.tabproductos.Controls.Add(this.label10);
             this.tabproductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabproductos.ForeColor = System.Drawing.Color.Black;
@@ -339,31 +378,63 @@
             this.tabproductos.Text = "Productos";
             this.tabproductos.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // panel1
+            // pictureBox1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.tbxcode);
-            this.panel1.Controls.Add(this.tbxcanactual);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.tbxcanreg);
-            this.panel1.Controls.Add(this.tbxnombre);
-            this.panel1.Controls.Add(this.lblcantactual);
-            this.panel1.Controls.Add(this.tbxpreventa);
-            this.panel1.Controls.Add(this.lbldesc);
-            this.panel1.Controls.Add(this.lblcantregistro);
-            this.panel1.Controls.Add(this.tbxprecost);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lblpreventa);
-            this.panel1.Controls.Add(this.cbxdepart);
-            this.panel1.Controls.Add(this.tbxdesc);
-            this.panel1.Controls.Add(this.lblprecosto);
-            this.panel1.Location = new System.Drawing.Point(17, 122);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(678, 466);
-            this.panel1.TabIndex = 18;
-            this.panel1.Visible = false;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::Punto_de_venta.Properties.Resources.seccionproduc3;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(426, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(513, 78);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnaddproducto
+            // 
+            this.btnaddproducto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnaddproducto.BackColor = System.Drawing.Color.Transparent;
+            this.btnaddproducto.BackgroundImage = global::Punto_de_venta.Properties.Resources.addp21;
+            this.btnaddproducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnaddproducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnaddproducto.FlatAppearance.BorderSize = 0;
+            this.btnaddproducto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnaddproducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnaddproducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddproducto.ForeColor = System.Drawing.Color.Transparent;
+            this.btnaddproducto.Location = new System.Drawing.Point(31, 112);
+            this.btnaddproducto.Name = "btnaddproducto";
+            this.btnaddproducto.Size = new System.Drawing.Size(218, 52);
+            this.btnaddproducto.TabIndex = 19;
+            this.btnaddproducto.UseVisualStyleBackColor = false;
+            this.btnaddproducto.Click += new System.EventHandler(this.btnaddproducto_Click);
+            this.btnaddproducto.MouseHover += new System.EventHandler(this.btnaddproducto_MouseHover);
+            // 
+            // panelfproductos
+            // 
+            this.panelfproductos.Controls.Add(this.label1);
+            this.panelfproductos.Controls.Add(this.button1);
+            this.panelfproductos.Controls.Add(this.tbxcode);
+            this.panelfproductos.Controls.Add(this.tbxcanactual);
+            this.panelfproductos.Controls.Add(this.label3);
+            this.panelfproductos.Controls.Add(this.tbxcanreg);
+            this.panelfproductos.Controls.Add(this.tbxnombre);
+            this.panelfproductos.Controls.Add(this.lblcantactual);
+            this.panelfproductos.Controls.Add(this.tbxpreventa);
+            this.panelfproductos.Controls.Add(this.lbldesc);
+            this.panelfproductos.Controls.Add(this.lblcantregistro);
+            this.panelfproductos.Controls.Add(this.tbxprecost);
+            this.panelfproductos.Controls.Add(this.label2);
+            this.panelfproductos.Controls.Add(this.lblpreventa);
+            this.panelfproductos.Controls.Add(this.cbxdepart);
+            this.panelfproductos.Controls.Add(this.tbxdesc);
+            this.panelfproductos.Controls.Add(this.lblprecosto);
+            this.panelfproductos.ForeColor = System.Drawing.Color.Black;
+            this.panelfproductos.Location = new System.Drawing.Point(19, 183);
+            this.panelfproductos.Name = "panelfproductos";
+            this.panelfproductos.Size = new System.Drawing.Size(548, 440);
+            this.panelfproductos.TabIndex = 18;
+            this.panelfproductos.Visible = false;
             // 
             // label1
             // 
@@ -376,11 +447,12 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(221, 387);
+            this.button1.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(191, 383);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 50);
+            this.button1.Size = new System.Drawing.Size(179, 50);
             this.button1.TabIndex = 17;
-            this.button1.Text = "Agregar Producto";
+            this.button1.Text = "Guardar Producto";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -508,21 +580,10 @@
             this.lblprecosto.Text = "Precio Costo";
             this.lblprecosto.Click += new System.EventHandler(this.lblprecosto_Click);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Impact", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(369, 3);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(301, 45);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Agregar Producto";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(691, 24);
+            this.label10.Location = new System.Drawing.Point(3, 3);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(246, 16);
             this.label10.TabIndex = 11;
@@ -758,33 +819,52 @@
             this.imageList1.Images.SetKeyName(3, "ccaja.png");
             this.imageList1.Images.SetKeyName(4, "cliente.png");
             // 
-            // codigo
+            // btnmodificarproduc
             // 
-            this.codigo.HeaderText = "Código";
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            this.codigo.Width = 260;
+            this.btnmodificarproduc.Location = new System.Drawing.Point(295, 112);
+            this.btnmodificarproduc.Name = "btnmodificarproduc";
+            this.btnmodificarproduc.Size = new System.Drawing.Size(178, 52);
+            this.btnmodificarproduc.TabIndex = 21;
+            this.btnmodificarproduc.Text = "Modificar Producto";
+            this.btnmodificarproduc.UseVisualStyleBackColor = true;
+            this.btnmodificarproduc.Click += new System.EventHandler(this.btnmodificarproduc_Click);
             // 
-            // nombre
+            // panelmodificar
             // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 240;
+            this.panelmodificar.Controls.Add(this.button5);
+            this.panelmodificar.Controls.Add(this.tbxmodproduc);
+            this.panelmodificar.Controls.Add(this.label7);
+            this.panelmodificar.Location = new System.Drawing.Point(594, 183);
+            this.panelmodificar.Name = "panelmodificar";
+            this.panelmodificar.Size = new System.Drawing.Size(508, 305);
+            this.panelmodificar.TabIndex = 22;
+            this.panelmodificar.Visible = false;
             // 
-            // cantidad
+            // label7
             // 
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            this.cantidad.Width = 170;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(34, 103);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(130, 16);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Código del producto";
             // 
-            // precio
+            // tbxmodproduc
             // 
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            this.precio.Width = 165;
+            this.tbxmodproduc.Location = new System.Drawing.Point(182, 97);
+            this.tbxmodproduc.Name = "tbxmodproduc";
+            this.tbxmodproduc.Size = new System.Drawing.Size(162, 22);
+            this.tbxmodproduc.TabIndex = 1;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(220, 220);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "Modificar Producto";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // form1
             // 
@@ -814,12 +894,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabproductos.ResumeLayout(false);
             this.tabproductos.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelfproductos.ResumeLayout(false);
+            this.panelfproductos.PerformLayout();
             this.tabiventario.ResumeLayout(false);
             this.tabiventario.PerformLayout();
             this.tabcliente.ResumeLayout(false);
             this.tabcliente.PerformLayout();
+            this.panelmodificar.ResumeLayout(false);
+            this.panelmodificar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -847,7 +930,6 @@
         private System.Windows.Forms.TabPage ticket2;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblcantregistro;
         private System.Windows.Forms.Label lblcantactual;
@@ -886,12 +968,19 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxcanactual;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelfproductos;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.Button btnaddproducto;
+        protected internal System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelmodificar;
+        private System.Windows.Forms.TextBox tbxmodproduc;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnmodificarproduc;
+        private System.Windows.Forms.Button button5;
     }
 }
 

@@ -58,14 +58,6 @@ namespace Punto_de_venta
         {
             
         }
-      
-        //List<departamento> Ldepartamento = new List<departamento>();
-        //departamento n;
-        //public MySqlConnection Cnn = new MySqlConnection();
-        //Bdcomun conexión;
-        //string nom;
-        //string stConsulta = "";
-        //string Conexión = "server=127.0.0.1; database=puntodeventa; Uid=root; pwd=;";
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -76,7 +68,7 @@ namespace Punto_de_venta
                 a.ListaDep();
                 cbxdepart.DataSource = a.getLista();
                 cbxdepart.DisplayMember = "nombre";
-                cbxdepart.ValueMember = "Id";
+                cbxdepart.ValueMember = "id";
 
             }
             catch (Exception a)
@@ -159,7 +151,7 @@ namespace Punto_de_venta
             pProducto.Cantactual =int.Parse(tbxcanactual.Text);
             pProducto.Precosto = double.Parse(tbxprecost.Text);
             pProducto.Preventa = double.Parse(tbxpreventa.Text);
-            pProducto.Departamento = cbxdepart.Text.ToString();
+            pProducto.Departamento = int.Parse(cbxdepart.SelectedValue.ToString());
 
             int resultado = Comandos.AgregarProductos(pProducto);
             if (resultado > 0)
@@ -190,9 +182,60 @@ namespace Punto_de_venta
 
         private void form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.V))
+            //if (e.KeyChar == Convert.ToChar(Keys.V))
+            //{
+            //    tabControl2.SelectedTab == tabControl2.TabPages[ticket2];
+            //}
+        }
+
+        private void btnaddproducto_Click(object sender, EventArgs e)
+        {
+            panelmodificar.Hide();
+            panelfproductos.Show();
+        }
+
+        private void btnaddproducto_MouseHover(object sender, EventArgs e)
+        {
+        }
+
+        private void btnmodificarproduc_Click(object sender, EventArgs e)
+        {
+            tbxmodproduc.Clear();
+            panelmodificar.Show();
+            panelfproductos.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            panelmodificar.Hide();
+            panelfproductos.Show();
+            try
             {
-                tabControl2.SelectedTab == tabControl2.TabPages[ticket2];
+                Bdcomun.ObtenerConexion();
+
+                string Consulta = "select productos.idproducto,productos.nombre,productos.descripcion,productos.cantidadstock,productos.preciocosto,productos.precioventa,departamento.nombre as 'nombred' from productos inner join departamento on productos.departamento = departamento.iddepartamento where productos.idproducto="+tbxmodproduc.Text;
+                MySqlCommand mycomand = new MySqlCommand();
+                mycomand.Connection = Bdcomun.ObtenerConexion();
+                mycomand.CommandText = Consulta;
+                MySqlDataReader reader = mycomand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    tbxcode.Text = reader["idproducto"].ToString();
+                    tbxnombre.Text = reader["nombre"].ToString();
+                    tbxdesc.Text = reader["descripcion"].ToString();
+                    cbxdepart.Text = reader["nombred"].ToString();
+                    tbxprecost.Text = reader["preciocosto"].ToString();
+                    tbxpreventa.Text = reader["precioventa"].ToString();
+                    tbxcanactual.Text = reader["cantidadstock"].ToString();
+                }
+                reader.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
