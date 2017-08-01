@@ -8,9 +8,9 @@ namespace Punto_de_venta
 {
     class producto
     {
-        private int codebar;
+        private string codebar;
 
-        public int Codebar
+        public string Codebar
         {
             get { return codebar; }
             set { codebar = value; }
@@ -76,7 +76,7 @@ namespace Punto_de_venta
 
         public producto() { }
 
-        public producto(int codebar,string nombre, string desc, int cantactual, double precosto, double preventa, int departamento)
+        public producto(string codebar,string nombre, string desc, int cantactual, double precosto, double preventa, int departamento)
         {
             this.codebar = codebar;
             this.nombre = nombre;

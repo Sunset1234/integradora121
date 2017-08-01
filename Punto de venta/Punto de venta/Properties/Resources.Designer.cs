@@ -63,16 +63,6 @@ namespace Punto_de_venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap addp {
-            get {
-                object obj = ResourceManager.GetObject("addp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap addp2 {
             get {
                 object obj = ResourceManager.GetObject("addp2", resourceCulture);
@@ -113,16 +103,6 @@ namespace Punto_de_venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap seccionproduc1 {
-            get {
-                object obj = ResourceManager.GetObject("seccionproduc1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap seccionproduc2 {
             get {
                 object obj = ResourceManager.GetObject("seccionproduc2", resourceCulture);
@@ -133,9 +113,19 @@ namespace Punto_de_venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap seccionproduc3 {
+        internal static System.Drawing.Bitmap seccionproduc4 {
             get {
-                object obj = ResourceManager.GetObject("seccionproduc3", resourceCulture);
+                object obj = ResourceManager.GetObject("seccionproduc4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seccionproduc5 {
+            get {
+                object obj = ResourceManager.GetObject("seccionproduc5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

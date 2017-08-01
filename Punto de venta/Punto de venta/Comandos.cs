@@ -29,5 +29,14 @@ namespace Punto_de_venta
             return retorno;
 
         }
+        public static int ActualizarProductos(producto pProducto)
+        {
+            int retorno = 0;
+            //    MySqlCommand comando = new MySqlCommand(string.Format("UPDATE `puntodeventa`.`productos` SET `idproducto`=" + pProducto.Codebar + ", `nombre`=" + pProducto.Nombre + ", `descripcion`=" + pProducto.Descripcion + ", `cantidadstock`=" + pProducto.Cantactual + ", `preciocosto`=" + pProducto.Precosto + ", `precioventa`=" + pProducto.Preventa + ", `departamento`=" + pProducto.Departamento + " WHERE `idproducto`=" + pProducto.Codebar
+            //    ), Bdcomun.ObtenerConexion());
+            //    retorno = comando.ExecuteNonQuery();
+            return retorno;
+
+        }
     }
 }

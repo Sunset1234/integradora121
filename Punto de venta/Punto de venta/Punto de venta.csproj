@@ -104,19 +104,16 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\addp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\addp2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\addp21.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\seccionproduc.png" />
+    <None Include="Resources\seccionproduc2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\seccionproduc1.png" />
+    <None Include="Resources\seccionproduc.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

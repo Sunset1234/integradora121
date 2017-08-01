@@ -30,8 +30,14 @@ namespace Punto_de_venta
 
         private void button3_Click(object sender, EventArgs e)
         {
-          
-            DialogResult result = MessageBox.Show("¿Imprimir ticket?","Ticket",MessageBoxButtons.YesNoCancel);
+            if (radioefectivo.Checked)
+            {
+                DialogResult result = MessageBox.Show("¿Imprimir ticket?", "Ticket", MessageBoxButtons.YesNoCancel);
+            }
+            else
+            {
+                MessageBox.Show("CLIENTE REGISTRADO");
+            }
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -62,21 +68,6 @@ namespace Punto_de_venta
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            try
-            {
-                departamento a = new departamento();
-                a.ListaDep();
-                cbxdepart.DataSource = a.getLista();
-                cbxdepart.DisplayMember = "nombre";
-                cbxdepart.ValueMember = "id";
-
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show(a.ToString());
-                throw;
-            }
-           
         }
 
         private void label15_Click(object sender, EventArgs e)
@@ -144,24 +135,24 @@ namespace Punto_de_venta
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            producto pProducto = new producto();
-            pProducto.Codebar = int.Parse(tbxcode.Text);
-            pProducto.Nombre = tbxnombre.Text.ToString();
-            pProducto.Descripcion = tbxdesc.Text.ToString();
-            pProducto.Cantactual =int.Parse(tbxcanactual.Text);
-            pProducto.Precosto = double.Parse(tbxprecost.Text);
-            pProducto.Preventa = double.Parse(tbxpreventa.Text);
-            pProducto.Departamento = int.Parse(cbxdepart.SelectedValue.ToString());
+                producto pProducto = new producto();
+                pProducto.Codebar = tbxcode.Text.ToString();
+                pProducto.Nombre = tbxnombre.Text.ToString();
+                pProducto.Descripcion = tbxdesc.Text.ToString();
+                pProducto.Cantactual = int.Parse(tbxcanactual.Text);
+                pProducto.Precosto = double.Parse(tbxprecost.Text);
+                pProducto.Preventa = double.Parse(tbxpreventa.Text);
+                pProducto.Departamento = int.Parse(cbxdepart.SelectedValue.ToString());
 
-            int resultado = Comandos.AgregarProductos(pProducto);
-            if (resultado > 0)
-            {
-                MessageBox.Show("¡Producto guardado con exito!");
-            }
-            else
-            {
-                MessageBox.Show("No se pudo guardar el cliente");
-            }
+                int resultado = Comandos.AgregarProductos(pProducto);
+                if (resultado > 0)
+                {
+                    MessageBox.Show("¡Producto guardado con exito!");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo guardar el cliente");
+                }
         }
 
         private void cbxdepart_SelectedIndexChanged(object sender, EventArgs e)
@@ -182,10 +173,10 @@ namespace Punto_de_venta
 
         private void form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //if (e.KeyChar == Convert.ToChar(Keys.V))
-            //{
-            //    tabControl2.SelectedTab == tabControl2.TabPages[ticket2];
-            //}
+        //    if (e.KeyChar == Convert.ToChar(Keys.V))
+        //    {
+        //        tabControl2.SelectedTab == tabControl2.TabPages[ticket2];
+        //    }
         }
 
         private void btnaddproducto_Click(object sender, EventArgs e)
@@ -202,39 +193,104 @@ namespace Punto_de_venta
         {
             tbxmodproduc.Clear();
             panelmodificar.Show();
+            paneladddepa.Hide();
             panelfproductos.Hide();
         }
 
+
         private void button5_Click(object sender, EventArgs e)
         {
-
-            panelmodificar.Hide();
-            panelfproductos.Show();
+            btnmodproduct.Visible = true;
             try
             {
                 Bdcomun.ObtenerConexion();
 
-                string Consulta = "select productos.idproducto,productos.nombre,productos.descripcion,productos.cantidadstock,productos.preciocosto,productos.precioventa,departamento.nombre as 'nombred' from productos inner join departamento on productos.departamento = departamento.iddepartamento where productos.idproducto="+tbxmodproduc.Text;
+                string Consulta = "select productos.idproducto,productos.nombre,productos.descripcion,productos.cantidadstock,productos.preciocosto,productos.precioventa,departamento.nombre as 'nombred' from productos inner join departamento on productos.departamento = departamento.iddepartamento where productos.idproducto='"+tbxmodproduc.Text.ToString()+"'";
                 MySqlCommand mycomand = new MySqlCommand();
                 mycomand.Connection = Bdcomun.ObtenerConexion();
                 mycomand.CommandText = Consulta;
                 MySqlDataReader reader = mycomand.ExecuteReader();
 
                 while (reader.Read())
-                {
-                    tbxcode.Text = reader["idproducto"].ToString();
-                    tbxnombre.Text = reader["nombre"].ToString();
-                    tbxdesc.Text = reader["descripcion"].ToString();
-                    cbxdepart.Text = reader["nombred"].ToString();
-                    tbxprecost.Text = reader["preciocosto"].ToString();
-                    tbxpreventa.Text = reader["precioventa"].ToString();
-                    tbxcanactual.Text = reader["cantidadstock"].ToString();
+                {                      
+                        tbxcode.Text = reader["idproducto"].ToString();
+                        tbxnombre.Text = reader["nombre"].ToString();
+                        tbxdesc.Text = reader["descripcion"].ToString();
+                        cbxdepart.Text = reader["nombred"].ToString();
+                        tbxprecost.Text = reader["preciocosto"].ToString();
+                        tbxpreventa.Text = reader["precioventa"].ToString();
+                        tbxcanactual.Text = reader["cantidadstock"].ToString();
                 }
                 reader.Close();
+                if (tbxcode.Text == "")
+                {
+                    MessageBox.Show("Producto no encontrado");
+                }
+                else {
+                    panelmodificar.Hide();
+                    panelfproductos.Show();
+
+                }
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
 
+        private void panelfproductos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnadddepa_Click(object sender, EventArgs e)
+        {
+            paneladddepa.Show();
+            panelfproductos.Hide();
+            panelmodificar.Hide();
+        }
+
+        private void btnmodproduct_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                Bdcomun.ObtenerConexion();
+
+                string Consulta = "UPDATE `puntodeventa`.`productos` SET `idproducto`= '"+tbxcode.Text.ToString()+ "', `nombre`= '"+tbxnombre.Text.ToString()+"', `descripcion`= '"+tbxdesc.Text.ToString()+"', `cantidadstock`= '"+int.Parse(tbxcanactual.Text)+"', `preciocosto`= '"+int.Parse(tbxprecost.Text)+"', `precioventa`= '"+int.Parse(tbxpreventa.Text)+"', `departamento`= '"+cbxdepart.ValueMember+"' WHERE `idproducto`= '"+tbxcode.Text.ToString()+"';";
+                MySqlCommand mycomand = new MySqlCommand();
+                mycomand.Connection = Bdcomun.ObtenerConexion();
+                mycomand.CommandText = Consulta;
+                MySqlDataReader reader = mycomand.ExecuteReader();
+                MessageBox.Show("Producto Modificado con exito!");
+                while (reader.Read())
+                {
+                    
+                }
+                reader.Close();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void form1_Load_1(object sender, EventArgs e)
+        {
+
+            try
+            {
+                departamento a = new departamento();
+                a.ListaDep();
+                cbxdepart.DataSource = a.getLista();
+                cbxdepart.DisplayMember = "nombre";
+                cbxdepart.ValueMember = "id";
+
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.ToString());
                 throw;
             }
         }

@@ -14,6 +14,7 @@ namespace Punto_de_venta
             MySqlConnection conectar = new MySqlConnection("server=127.0.0.1; database=puntodeventa; Uid=root; pwd=;");
             conectar.Open();
             return conectar;
+
         }
 
      }
