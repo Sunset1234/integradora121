@@ -24,7 +24,6 @@ namespace Punto_de_venta
             set { nombre = value; }
         }
 
-
         private string descripcion;
 
         public string Descripcion
@@ -57,14 +56,6 @@ namespace Punto_de_venta
             set { preventa = value; }
         }
 
-        //private int cantregistro;
-
-        //public int Cantregistro
-        //{
-        //    get { return cantregistro; }
-        //    set { cantregistro = value; }
-        //}
-
         private int cantactual;
 
         public int Cantactual
@@ -72,7 +63,6 @@ namespace Punto_de_venta
             get { return cantactual; }
             set { cantactual = value; }
         }
-
 
         public producto() { }
 

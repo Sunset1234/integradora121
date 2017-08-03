@@ -41,7 +41,6 @@ namespace Punto_de_venta
                 mycomand.CommandText = Consulta;
                 MySqlDataReader reader = mycomand.ExecuteReader();
 
-
                 while (reader.Read())
                 { 
                     string nom = reader["nombre"].ToString();

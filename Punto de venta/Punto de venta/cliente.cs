@@ -56,6 +56,15 @@ namespace Punto_de_venta
             set { telefono = value; }
         }
 
+        private double saldo;
+
+        public double Saldo
+        {
+            get { return saldo; }
+            set { saldo = value; }
+        }
+
+
         public cliente() { }
 
         public cliente(int Pid,string Pnombre, string Papaterno, string Pamaterno, string Pdir, int tel)

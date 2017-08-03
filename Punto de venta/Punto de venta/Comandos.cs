@@ -29,14 +29,41 @@ namespace Punto_de_venta
             return retorno;
 
         }
-        public static int ActualizarProductos(producto pProducto)
+
+        public static int AgregarDepartamento(departamento dDepartamento)
         {
             int retorno = 0;
-            //    MySqlCommand comando = new MySqlCommand(string.Format("UPDATE `puntodeventa`.`productos` SET `idproducto`=" + pProducto.Codebar + ", `nombre`=" + pProducto.Nombre + ", `descripcion`=" + pProducto.Descripcion + ", `cantidadstock`=" + pProducto.Cantactual + ", `preciocosto`=" + pProducto.Precosto + ", `precioventa`=" + pProducto.Preventa + ", `departamento`=" + pProducto.Departamento + " WHERE `idproducto`=" + pProducto.Codebar
-            //    ), Bdcomun.ObtenerConexion());
-            //    retorno = comando.ExecuteNonQuery();
+            MySqlCommand comando = new MySqlCommand(string.Format("Insert into departamento(nombre) values ('{0}')",
+            dDepartamento.Nombre), Bdcomun.ObtenerConexion());
+            retorno = comando.ExecuteNonQuery();
             return retorno;
-
         }
+
+        public static int ActualizarProducto(producto pProducto)
+        {
+            int retorno=0;
+            MySqlCommand comando = new MySqlCommand(string.Format("UPDATE `puntodeventa`.`productos` SET `idproducto`='" + pProducto.Codebar +
+                "', `nombre`='" + pProducto.Nombre + "', `descripcion`='" + pProducto.Descripcion +
+                "', `cantidadstock`='" + pProducto.Cantactual + "', `preciocosto`='" + pProducto.Precosto +
+                "', `precioventa`='" + pProducto.Preventa + "', `departamento`='" + pProducto.Departamento +
+                "' WHERE `idproducto`='" + pProducto.Codebar + "';"),
+                Bdcomun.ObtenerConexion());
+            retorno = comando.ExecuteNonQuery();
+            return retorno;
+        }
+
+        public static int ActualizarCliente(cliente cCliente)
+        {
+            int retorno = 0;
+            MySqlCommand comando = new MySqlCommand(string.Format("UPDATE `puntodeventa`.`cliente` SET `idcliente`='" + cCliente.Idcliente +
+                "', `nombre`='" + cCliente.Nombre + "', `apaterno`='" + cCliente.Apaterno + "', `amaterno`='" + cCliente.Amaterno +
+                "', `direccion`='" + cCliente.Dirección + "', `telefono`='" + cCliente.Telefono + "', `saldo`='" + cCliente.Saldo +
+                "' WHERE `idcliente`='" + cCliente.Idcliente + "';"), Bdcomun.ObtenerConexion());
+            retorno = comando.ExecuteNonQuery();
+            return retorno;
+        }
+
+
+
     }
 }

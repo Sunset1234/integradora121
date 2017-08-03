@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form1));
             this.tabprincipal = new System.Windows.Forms.TabControl();
             this.tabventas = new System.Windows.Forms.TabPage();
@@ -37,7 +37,7 @@
             this.ticket1 = new System.Windows.Forms.TabPage();
             this.radioaddcuenta = new System.Windows.Forms.RadioButton();
             this.radioefectivo = new System.Windows.Forms.RadioButton();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnbuscar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,30 +45,29 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.ticket2 = new System.Windows.Forms.TabPage();
-            this.tabproductos = new System.Windows.Forms.TabPage();
-            this.paneladddepa = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnadddepa = new System.Windows.Forms.Button();
+            this.btneliminarproducto = new System.Windows.Forms.TabPage();
+            this.btnmodificardepartamento = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panelmodificar = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.tbxmodproduc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.paneladddepa = new System.Windows.Forms.Panel();
+            this.btncreadepa = new System.Windows.Forms.Button();
+            this.tbxnomdepa = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnadddepa = new System.Windows.Forms.Button();
             this.btnmodificarproduc = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnaddproducto = new System.Windows.Forms.Button();
             this.panelfproductos = new System.Windows.Forms.Panel();
             this.btnmodproduct = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button1adp = new System.Windows.Forms.Button();
             this.tbxcode = new System.Windows.Forms.TextBox();
             this.tbxcanactual = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -94,46 +93,58 @@
             this.label12 = new System.Windows.Forms.Label();
             this.tabcortecaja = new System.Windows.Forms.TabPage();
             this.tabcliente = new System.Windows.Forms.TabPage();
-            this.tbxid = new System.Windows.Forms.TextBox();
-            this.lblcliente = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.lbltel = new System.Windows.Forms.Label();
-            this.lbldir = new System.Windows.Forms.Label();
-            this.lblamaterno = new System.Windows.Forms.Label();
+            this.btnmodcliente = new System.Windows.Forms.Button();
+            this.btnaddcliente = new System.Windows.Forms.Button();
+            this.paneladcliente = new System.Windows.Forms.Panel();
+            this.btnguardacambios = new System.Windows.Forms.Button();
             this.lblapaterno = new System.Windows.Forms.Label();
-            this.tbxtel = new System.Windows.Forms.TextBox();
-            this.tbxdir = new System.Windows.Forms.TextBox();
-            this.tbxamaterno = new System.Windows.Forms.TextBox();
-            this.tbxapaterno = new System.Windows.Forms.TextBox();
-            this.tbxname = new System.Windows.Forms.TextBox();
             this.lblname = new System.Windows.Forms.Label();
+            this.tbxtel = new System.Windows.Forms.TextBox();
+            this.tbxname = new System.Windows.Forms.TextBox();
+            this.lblamaterno = new System.Windows.Forms.Label();
+            this.btnagregacli = new System.Windows.Forms.Button();
+            this.tbxdir = new System.Windows.Forms.TextBox();
+            this.tbxapaterno = new System.Windows.Forms.TextBox();
+            this.lbldir = new System.Windows.Forms.Label();
+            this.lbltel = new System.Windows.Forms.Label();
+            this.tbxamaterno = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btneliminarproduc = new System.Windows.Forms.Button();
+            this.btneliminardepa = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbxsaldolimite = new System.Windows.Forms.TextBox();
             this.tabprincipal.SuspendLayout();
             this.tabventas.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.ticket1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tabproductos.SuspendLayout();
-            this.paneladddepa.SuspendLayout();
+            this.btneliminarproducto.SuspendLayout();
             this.panelmodificar.SuspendLayout();
+            this.paneladddepa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelfproductos.SuspendLayout();
             this.tabiventario.SuspendLayout();
             this.tabcliente.SuspendLayout();
+            this.paneladcliente.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabprincipal
             // 
             this.tabprincipal.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabprincipal.Controls.Add(this.tabventas);
-            this.tabprincipal.Controls.Add(this.tabproductos);
+            this.tabprincipal.Controls.Add(this.btneliminarproducto);
             this.tabprincipal.Controls.Add(this.tabiventario);
             this.tabprincipal.Controls.Add(this.tabcortecaja);
             this.tabprincipal.Controls.Add(this.tabcliente);
             this.tabprincipal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabprincipal.HotTrack = true;
             this.tabprincipal.ImageList = this.imageList1;
-            this.tabprincipal.ItemSize = new System.Drawing.Size(51, 56);
+            this.tabprincipal.ItemSize = new System.Drawing.Size(40, 45);
             this.tabprincipal.Location = new System.Drawing.Point(0, 0);
             this.tabprincipal.Multiline = true;
             this.tabprincipal.Name = "tabprincipal";
@@ -144,14 +155,15 @@
             // tabventas
             // 
             this.tabventas.BackColor = System.Drawing.Color.Transparent;
+            this.tabventas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabventas.Controls.Add(this.tabControl2);
             this.tabventas.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabventas.ForeColor = System.Drawing.Color.Black;
             this.tabventas.ImageIndex = 0;
-            this.tabventas.Location = new System.Drawing.Point(4, 60);
+            this.tabventas.Location = new System.Drawing.Point(4, 49);
             this.tabventas.Name = "tabventas";
             this.tabventas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabventas.Size = new System.Drawing.Size(1359, 655);
+            this.tabventas.Size = new System.Drawing.Size(1359, 666);
             this.tabventas.TabIndex = 0;
             this.tabventas.Text = "Ventas";
             this.tabventas.Click += new System.EventHandler(this.tabPage1_Click);
@@ -160,20 +172,21 @@
             // 
             this.tabControl2.Controls.Add(this.ticket1);
             this.tabControl2.Controls.Add(this.ticket2);
-            this.tabControl2.Location = new System.Drawing.Point(0, 0);
+            this.tabControl2.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl2.Location = new System.Drawing.Point(1, -1);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1359, 651);
+            this.tabControl2.Size = new System.Drawing.Size(1367, 651);
             this.tabControl2.TabIndex = 20;
             this.tabControl2.TabStop = false;
             this.tabControl2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabControl2_KeyPress);
             // 
             // ticket1
             // 
-            this.ticket1.BackColor = System.Drawing.Color.LightGray;
+            this.ticket1.BackColor = System.Drawing.Color.White;
             this.ticket1.Controls.Add(this.radioaddcuenta);
             this.ticket1.Controls.Add(this.radioefectivo);
-            this.ticket1.Controls.Add(this.button4);
+            this.ticket1.Controls.Add(this.btnbuscar);
             this.ticket1.Controls.Add(this.button3);
             this.ticket1.Controls.Add(this.textBox5);
             this.ticket1.Controls.Add(this.label4);
@@ -189,7 +202,7 @@
             this.ticket1.Location = new System.Drawing.Point(4, 29);
             this.ticket1.Name = "ticket1";
             this.ticket1.Padding = new System.Windows.Forms.Padding(3);
-            this.ticket1.Size = new System.Drawing.Size(1351, 618);
+            this.ticket1.Size = new System.Drawing.Size(1359, 618);
             this.ticket1.TabIndex = 0;
             this.ticket1.Text = "Ticket 1";
             // 
@@ -197,7 +210,7 @@
             // 
             this.radioaddcuenta.AutoSize = true;
             this.radioaddcuenta.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.radioaddcuenta.Location = new System.Drawing.Point(1125, 335);
+            this.radioaddcuenta.Location = new System.Drawing.Point(671, 467);
             this.radioaddcuenta.Name = "radioaddcuenta";
             this.radioaddcuenta.Size = new System.Drawing.Size(161, 24);
             this.radioaddcuenta.TabIndex = 21;
@@ -209,7 +222,7 @@
             // radioefectivo
             // 
             this.radioefectivo.AutoSize = true;
-            this.radioefectivo.Location = new System.Drawing.Point(935, 335);
+            this.radioefectivo.Location = new System.Drawing.Point(479, 467);
             this.radioefectivo.Name = "radioefectivo";
             this.radioefectivo.Size = new System.Drawing.Size(91, 24);
             this.radioefectivo.TabIndex = 20;
@@ -217,23 +230,18 @@
             this.radioefectivo.Text = "EFECTIVO";
             this.radioefectivo.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnbuscar
             // 
-            this.button4.BackColor = System.Drawing.Color.CadetBlue;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.button4.FlatAppearance.BorderSize = 7;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(600, 20);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 39);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "BUSCAR";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnbuscar.Location = new System.Drawing.Point(619, 20);
+            this.btnbuscar.Name = "btnbuscar";
+            this.btnbuscar.Size = new System.Drawing.Size(87, 26);
+            this.btnbuscar.TabIndex = 22;
+            this.btnbuscar.Text = "Buscar";
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1015, 383);
+            this.button3.Location = new System.Drawing.Point(587, 525);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(138, 52);
             this.button3.TabIndex = 13;
@@ -243,25 +251,26 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(1044, 225);
+            this.textBox5.Location = new System.Drawing.Point(107, 556);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(133, 26);
+            this.textBox5.Size = new System.Drawing.Size(218, 26);
             this.textBox5.TabIndex = 16;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(915, 240);
+            this.label4.Location = new System.Drawing.Point(21, 562);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 20);
             this.label4.TabIndex = 19;
             this.label4.Text = "Cambio";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox8
             // 
             this.textBox8.AccessibleDescription = "Ingrese código o palabra a consultar";
             this.textBox8.AccessibleName = "Ingrese código o palabra a consultar";
-            this.textBox8.Location = new System.Drawing.Point(25, 30);
+            this.textBox8.Location = new System.Drawing.Point(25, 20);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(560, 26);
             this.textBox8.TabIndex = 12;
@@ -270,7 +279,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(918, 176);
+            this.label5.Location = new System.Drawing.Point(21, 525);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 20);
             this.label5.TabIndex = 18;
@@ -278,18 +287,18 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(1060, 173);
+            this.textBox6.Location = new System.Drawing.Point(116, 525);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(133, 26);
+            this.textBox6.Size = new System.Drawing.Size(218, 26);
             this.textBox6.TabIndex = 15;
             // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(255)))), ((int)(((byte)(100)))));
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -306,43 +315,15 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(837, 519);
+            this.dataGridView2.Size = new System.Drawing.Size(1294, 385);
             this.dataGridView2.TabIndex = 10;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // codigo
-            // 
-            this.codigo.HeaderText = "Código";
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            this.codigo.Width = 260;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 240;
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            this.cantidad.Width = 170;
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            this.precio.Width = 165;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(915, 123);
+            this.label6.Location = new System.Drawing.Point(21, 491);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 20);
             this.label6.TabIndex = 17;
@@ -350,7 +331,7 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(1028, 117);
+            this.textBox7.Location = new System.Drawing.Point(116, 491);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(218, 26);
             this.textBox7.TabIndex = 14;
@@ -360,104 +341,83 @@
             this.ticket2.Location = new System.Drawing.Point(4, 29);
             this.ticket2.Name = "ticket2";
             this.ticket2.Padding = new System.Windows.Forms.Padding(3);
-            this.ticket2.Size = new System.Drawing.Size(1351, 618);
+            this.ticket2.Size = new System.Drawing.Size(1359, 618);
             this.ticket2.TabIndex = 1;
             this.ticket2.Text = "Ticket 2";
             this.ticket2.UseVisualStyleBackColor = true;
             // 
-            // tabproductos
+            // btneliminarproducto
             // 
-            this.tabproductos.BackColor = System.Drawing.Color.Khaki;
-            this.tabproductos.Controls.Add(this.paneladddepa);
-            this.tabproductos.Controls.Add(this.btnadddepa);
-            this.tabproductos.Controls.Add(this.panelmodificar);
-            this.tabproductos.Controls.Add(this.btnmodificarproduc);
-            this.tabproductos.Controls.Add(this.pictureBox1);
-            this.tabproductos.Controls.Add(this.btnaddproducto);
-            this.tabproductos.Controls.Add(this.panelfproductos);
-            this.tabproductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabproductos.ForeColor = System.Drawing.Color.Black;
-            this.tabproductos.ImageIndex = 1;
-            this.tabproductos.Location = new System.Drawing.Point(4, 60);
-            this.tabproductos.Name = "tabproductos";
-            this.tabproductos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabproductos.Size = new System.Drawing.Size(1359, 655);
-            this.tabproductos.TabIndex = 1;
-            this.tabproductos.Text = "Productos";
-            this.tabproductos.Click += new System.EventHandler(this.tabPage2_Click);
+            this.btneliminarproducto.BackColor = System.Drawing.Color.Khaki;
+            this.btneliminarproducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btneliminarproducto.Controls.Add(this.btneliminardepa);
+            this.btneliminarproducto.Controls.Add(this.btneliminarproduc);
+            this.btneliminarproducto.Controls.Add(this.btnmodificardepartamento);
+            this.btneliminarproducto.Controls.Add(this.listBox1);
+            this.btneliminarproducto.Controls.Add(this.panelmodificar);
+            this.btneliminarproducto.Controls.Add(this.button1);
+            this.btneliminarproducto.Controls.Add(this.paneladddepa);
+            this.btneliminarproducto.Controls.Add(this.btnadddepa);
+            this.btneliminarproducto.Controls.Add(this.btnmodificarproduc);
+            this.btneliminarproducto.Controls.Add(this.pictureBox1);
+            this.btneliminarproducto.Controls.Add(this.btnaddproducto);
+            this.btneliminarproducto.Controls.Add(this.panelfproductos);
+            this.btneliminarproducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneliminarproducto.ForeColor = System.Drawing.Color.Black;
+            this.btneliminarproducto.ImageIndex = 1;
+            this.btneliminarproducto.Location = new System.Drawing.Point(4, 49);
+            this.btneliminarproducto.Name = "btneliminarproducto";
+            this.btneliminarproducto.Padding = new System.Windows.Forms.Padding(3);
+            this.btneliminarproducto.Size = new System.Drawing.Size(1359, 666);
+            this.btneliminarproducto.TabIndex = 1;
+            this.btneliminarproducto.Text = "Productos";
+            this.btneliminarproducto.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // paneladddepa
+            // btnmodificardepartamento
             // 
-            this.paneladddepa.Controls.Add(this.button6);
-            this.paneladddepa.Controls.Add(this.textBox1);
-            this.paneladddepa.Controls.Add(this.label8);
-            this.paneladddepa.Location = new System.Drawing.Point(573, 183);
-            this.paneladddepa.Name = "paneladddepa";
-            this.paneladddepa.Size = new System.Drawing.Size(232, 119);
-            this.paneladddepa.TabIndex = 25;
-            this.paneladddepa.Visible = false;
+            this.btnmodificardepartamento.Location = new System.Drawing.Point(628, 484);
+            this.btnmodificardepartamento.Name = "btnmodificardepartamento";
+            this.btnmodificardepartamento.Size = new System.Drawing.Size(106, 42);
+            this.btnmodificardepartamento.TabIndex = 28;
+            this.btnmodificardepartamento.Text = "Modificar Departamento";
+            this.btnmodificardepartamento.UseVisualStyleBackColor = true;
+            this.btnmodificardepartamento.Click += new System.EventHandler(this.btnmodificardepartamento_Click);
             // 
-            // button6
+            // listBox1
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(44, 57);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(158, 34);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Crear Departamento";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(3, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 22);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(22, 8);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(180, 18);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Nombre del departamento";
-            // 
-            // btnadddepa
-            // 
-            this.btnadddepa.Location = new System.Drawing.Point(581, 112);
-            this.btnadddepa.Name = "btnadddepa";
-            this.btnadddepa.Size = new System.Drawing.Size(180, 52);
-            this.btnadddepa.TabIndex = 24;
-            this.btnadddepa.Text = "Agregar Departamento";
-            this.btnadddepa.UseVisualStyleBackColor = true;
-            this.btnadddepa.Click += new System.EventHandler(this.btnadddepa_Click);
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(573, 332);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(230, 148);
+            this.listBox1.TabIndex = 27;
+            this.listBox1.Visible = false;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // panelmodificar
             // 
             this.panelmodificar.Controls.Add(this.button5);
             this.panelmodificar.Controls.Add(this.tbxmodproduc);
             this.panelmodificar.Controls.Add(this.label7);
-            this.panelmodificar.Location = new System.Drawing.Point(824, 139);
+            this.panelmodificar.Location = new System.Drawing.Point(159, 172);
             this.panelmodificar.Name = "panelmodificar";
-            this.panelmodificar.Size = new System.Drawing.Size(396, 217);
+            this.panelmodificar.Size = new System.Drawing.Size(384, 170);
             this.panelmodificar.TabIndex = 22;
             this.panelmodificar.Visible = false;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(113, 138);
+            this.button5.Location = new System.Drawing.Point(110, 78);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(154, 48);
             this.button5.TabIndex = 2;
-            this.button5.Text = "Modificar Producto";
+            this.button5.Text = "Buscar Producto";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // tbxmodproduc
             // 
-            this.tbxmodproduc.Location = new System.Drawing.Point(152, 104);
+            this.tbxmodproduc.Location = new System.Drawing.Point(171, 41);
             this.tbxmodproduc.Name = "tbxmodproduc";
             this.tbxmodproduc.Size = new System.Drawing.Size(204, 22);
             this.tbxmodproduc.TabIndex = 1;
@@ -465,28 +425,91 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 105);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(14, 42);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(142, 18);
+            this.label7.Size = new System.Drawing.Size(151, 20);
             this.label7.TabIndex = 0;
             this.label7.Text = "Código del producto";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(753, 103);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(173, 52);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Modificar Departamento";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // paneladddepa
+            // 
+            this.paneladddepa.Controls.Add(this.btncreadepa);
+            this.paneladddepa.Controls.Add(this.tbxnomdepa);
+            this.paneladddepa.Controls.Add(this.label8);
+            this.paneladddepa.Location = new System.Drawing.Point(573, 192);
+            this.paneladddepa.Name = "paneladddepa";
+            this.paneladddepa.Size = new System.Drawing.Size(257, 119);
+            this.paneladddepa.TabIndex = 25;
+            this.paneladddepa.Visible = false;
+            // 
+            // btncreadepa
+            // 
+            this.btncreadepa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncreadepa.Location = new System.Drawing.Point(43, 68);
+            this.btncreadepa.Name = "btncreadepa";
+            this.btncreadepa.Size = new System.Drawing.Size(158, 34);
+            this.btncreadepa.TabIndex = 2;
+            this.btncreadepa.Text = "Crear Departamento";
+            this.btncreadepa.UseVisualStyleBackColor = true;
+            this.btncreadepa.Click += new System.EventHandler(this.btncreadepa_Click);
+            // 
+            // tbxnomdepa
+            // 
+            this.tbxnomdepa.Location = new System.Drawing.Point(3, 29);
+            this.tbxnomdepa.Name = "tbxnomdepa";
+            this.tbxnomdepa.Size = new System.Drawing.Size(230, 22);
+            this.tbxnomdepa.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(30, 8);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(180, 18);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Nombre del departamento";
+            // 
+            // btnadddepa
+            // 
+            this.btnadddepa.Location = new System.Drawing.Point(582, 104);
+            this.btnadddepa.Name = "btnadddepa";
+            this.btnadddepa.Size = new System.Drawing.Size(152, 43);
+            this.btnadddepa.TabIndex = 24;
+            this.btnadddepa.Text = "Agregar Departamento";
+            this.btnadddepa.UseVisualStyleBackColor = true;
+            this.btnadddepa.Click += new System.EventHandler(this.btnadddepa_Click);
+            // 
             // btnmodificarproduc
             // 
-            this.btnmodificarproduc.BackColor = System.Drawing.Color.Transparent;
-            this.btnmodificarproduc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnmodificarproduc.BackgroundImage")));
-            this.btnmodificarproduc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnmodificarproduc.BackColor = System.Drawing.SystemColors.Control;
+            this.btnmodificarproduc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnmodificarproduc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnmodificarproduc.FlatAppearance.BorderSize = 0;
             this.btnmodificarproduc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnmodificarproduc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnmodificarproduc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnmodificarproduc.ForeColor = System.Drawing.Color.Transparent;
-            this.btnmodificarproduc.Location = new System.Drawing.Point(255, 112);
+            this.btnmodificarproduc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnmodificarproduc.ForeColor = System.Drawing.Color.Black;
+            this.btnmodificarproduc.Image = ((System.Drawing.Image)(resources.GetObject("btnmodificarproduc.Image")));
+            this.btnmodificarproduc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnmodificarproduc.Location = new System.Drawing.Point(201, 107);
             this.btnmodificarproduc.Name = "btnmodificarproduc";
-            this.btnmodificarproduc.Size = new System.Drawing.Size(286, 52);
+            this.btnmodificarproduc.Size = new System.Drawing.Size(136, 43);
             this.btnmodificarproduc.TabIndex = 21;
+            this.btnmodificarproduc.Text = "Modificar";
+            this.btnmodificarproduc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnmodificarproduc.UseVisualStyleBackColor = false;
             this.btnmodificarproduc.Click += new System.EventHandler(this.btnmodificarproduc_Click);
             // 
@@ -512,9 +535,9 @@
             this.btnaddproducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnaddproducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnaddproducto.ForeColor = System.Drawing.Color.Transparent;
-            this.btnaddproducto.Location = new System.Drawing.Point(31, 112);
+            this.btnaddproducto.Location = new System.Drawing.Point(43, 99);
             this.btnaddproducto.Name = "btnaddproducto";
-            this.btnaddproducto.Size = new System.Drawing.Size(218, 52);
+            this.btnaddproducto.Size = new System.Drawing.Size(136, 52);
             this.btnaddproducto.TabIndex = 19;
             this.btnaddproducto.UseVisualStyleBackColor = false;
             this.btnaddproducto.Click += new System.EventHandler(this.btnaddproducto_Click);
@@ -522,9 +545,10 @@
             // 
             // panelfproductos
             // 
+            this.panelfproductos.Controls.Add(this.button2);
             this.panelfproductos.Controls.Add(this.btnmodproduct);
             this.panelfproductos.Controls.Add(this.label1);
-            this.panelfproductos.Controls.Add(this.button1);
+            this.panelfproductos.Controls.Add(this.button1adp);
             this.panelfproductos.Controls.Add(this.tbxcode);
             this.panelfproductos.Controls.Add(this.tbxcanactual);
             this.panelfproductos.Controls.Add(this.label3);
@@ -551,7 +575,7 @@
             // btnmodproduct
             // 
             this.btnmodproduct.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnmodproduct.Location = new System.Drawing.Point(245, 380);
+            this.btnmodproduct.Location = new System.Drawing.Point(232, 380);
             this.btnmodproduct.Name = "btnmodproduct";
             this.btnmodproduct.Size = new System.Drawing.Size(121, 50);
             this.btnmodproduct.TabIndex = 18;
@@ -570,16 +594,16 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Código";
             // 
-            // button1
+            // button1adp
             // 
-            this.button1.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(219, 380);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 50);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Guardar Producto";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1adp.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1adp.Location = new System.Drawing.Point(219, 380);
+            this.button1adp.Name = "button1adp";
+            this.button1adp.Size = new System.Drawing.Size(121, 50);
+            this.button1adp.TabIndex = 17;
+            this.button1adp.Text = "Guardar Producto";
+            this.button1adp.UseVisualStyleBackColor = true;
+            this.button1adp.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // tbxcode
             // 
@@ -718,6 +742,7 @@
             // tabiventario
             // 
             this.tabiventario.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.tabiventario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabiventario.Controls.Add(this.label15);
             this.tabiventario.Controls.Add(this.textBox13);
             this.tabiventario.Controls.Add(this.label14);
@@ -727,9 +752,9 @@
             this.tabiventario.Controls.Add(this.label12);
             this.tabiventario.ForeColor = System.Drawing.Color.Black;
             this.tabiventario.ImageIndex = 2;
-            this.tabiventario.Location = new System.Drawing.Point(4, 60);
+            this.tabiventario.Location = new System.Drawing.Point(4, 49);
             this.tabiventario.Name = "tabiventario";
-            this.tabiventario.Size = new System.Drawing.Size(1359, 655);
+            this.tabiventario.Size = new System.Drawing.Size(1359, 666);
             this.tabiventario.TabIndex = 2;
             this.tabiventario.Text = "Inventario";
             this.tabiventario.Click += new System.EventHandler(this.tabPage3_Click);
@@ -795,145 +820,177 @@
             // 
             // tabcortecaja
             // 
+            this.tabcortecaja.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabcortecaja.ImageIndex = 3;
-            this.tabcortecaja.Location = new System.Drawing.Point(4, 60);
+            this.tabcortecaja.Location = new System.Drawing.Point(4, 49);
             this.tabcortecaja.Name = "tabcortecaja";
-            this.tabcortecaja.Size = new System.Drawing.Size(1359, 655);
+            this.tabcortecaja.Size = new System.Drawing.Size(1359, 666);
             this.tabcortecaja.TabIndex = 3;
             this.tabcortecaja.Text = "Corte de caja";
             this.tabcortecaja.UseVisualStyleBackColor = true;
             // 
             // tabcliente
             // 
-            this.tabcliente.Controls.Add(this.tbxid);
-            this.tabcliente.Controls.Add(this.lblcliente);
-            this.tabcliente.Controls.Add(this.button2);
-            this.tabcliente.Controls.Add(this.lbltel);
-            this.tabcliente.Controls.Add(this.lbldir);
-            this.tabcliente.Controls.Add(this.lblamaterno);
-            this.tabcliente.Controls.Add(this.lblapaterno);
-            this.tabcliente.Controls.Add(this.tbxtel);
-            this.tabcliente.Controls.Add(this.tbxdir);
-            this.tabcliente.Controls.Add(this.tbxamaterno);
-            this.tabcliente.Controls.Add(this.tbxapaterno);
-            this.tabcliente.Controls.Add(this.tbxname);
-            this.tabcliente.Controls.Add(this.lblname);
+            this.tabcliente.BackColor = System.Drawing.Color.White;
+            this.tabcliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabcliente.Controls.Add(this.btnmodcliente);
+            this.tabcliente.Controls.Add(this.btnaddcliente);
+            this.tabcliente.Controls.Add(this.paneladcliente);
             this.tabcliente.ForeColor = System.Drawing.Color.Black;
             this.tabcliente.ImageIndex = 4;
-            this.tabcliente.Location = new System.Drawing.Point(4, 60);
+            this.tabcliente.Location = new System.Drawing.Point(4, 49);
             this.tabcliente.Name = "tabcliente";
-            this.tabcliente.Size = new System.Drawing.Size(1359, 655);
+            this.tabcliente.Size = new System.Drawing.Size(1359, 666);
             this.tabcliente.TabIndex = 4;
             this.tabcliente.Text = "Clientes";
-            this.tabcliente.UseVisualStyleBackColor = true;
             // 
-            // tbxid
+            // btnmodcliente
             // 
-            this.tbxid.Location = new System.Drawing.Point(216, 32);
-            this.tbxid.Name = "tbxid";
-            this.tbxid.Size = new System.Drawing.Size(185, 27);
-            this.tbxid.TabIndex = 12;
+            this.btnmodcliente.Location = new System.Drawing.Point(357, 69);
+            this.btnmodcliente.Name = "btnmodcliente";
+            this.btnmodcliente.Size = new System.Drawing.Size(150, 31);
+            this.btnmodcliente.TabIndex = 16;
+            this.btnmodcliente.Text = "Modificar Cliente";
+            this.btnmodcliente.UseVisualStyleBackColor = true;
+            this.btnmodcliente.Click += new System.EventHandler(this.btnmodcliente_Click);
             // 
-            // lblcliente
+            // btnaddcliente
             // 
-            this.lblcliente.AutoSize = true;
-            this.lblcliente.Location = new System.Drawing.Point(53, 35);
-            this.lblcliente.Name = "lblcliente";
-            this.lblcliente.Size = new System.Drawing.Size(80, 19);
-            this.lblcliente.TabIndex = 11;
-            this.lblcliente.Text = "Id cliente";
-            this.lblcliente.Click += new System.EventHandler(this.label16_Click);
+            this.btnaddcliente.Location = new System.Drawing.Point(116, 67);
+            this.btnaddcliente.Name = "btnaddcliente";
+            this.btnaddcliente.Size = new System.Drawing.Size(158, 35);
+            this.btnaddcliente.TabIndex = 15;
+            this.btnaddcliente.Text = "Nuevo Cliente";
+            this.btnaddcliente.UseVisualStyleBackColor = true;
+            this.btnaddcliente.Click += new System.EventHandler(this.btnaddcliente_Click);
             // 
-            // button2
+            // paneladcliente
             // 
-            this.button2.Location = new System.Drawing.Point(176, 309);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 64);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Agregar Clientes";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.paneladcliente.Controls.Add(this.tbxsaldolimite);
+            this.paneladcliente.Controls.Add(this.label9);
+            this.paneladcliente.Controls.Add(this.btnguardacambios);
+            this.paneladcliente.Controls.Add(this.lblapaterno);
+            this.paneladcliente.Controls.Add(this.lblname);
+            this.paneladcliente.Controls.Add(this.tbxtel);
+            this.paneladcliente.Controls.Add(this.tbxname);
+            this.paneladcliente.Controls.Add(this.lblamaterno);
+            this.paneladcliente.Controls.Add(this.btnagregacli);
+            this.paneladcliente.Controls.Add(this.tbxdir);
+            this.paneladcliente.Controls.Add(this.tbxapaterno);
+            this.paneladcliente.Controls.Add(this.lbldir);
+            this.paneladcliente.Controls.Add(this.lbltel);
+            this.paneladcliente.Controls.Add(this.tbxamaterno);
+            this.paneladcliente.Location = new System.Drawing.Point(23, 120);
+            this.paneladcliente.Name = "paneladcliente";
+            this.paneladcliente.Size = new System.Drawing.Size(385, 363);
+            this.paneladcliente.TabIndex = 14;
+            this.paneladcliente.Visible = false;
             // 
-            // lbltel
+            // btnguardacambios
             // 
-            this.lbltel.AutoSize = true;
-            this.lbltel.Location = new System.Drawing.Point(56, 255);
-            this.lbltel.Name = "lbltel";
-            this.lbltel.Size = new System.Drawing.Size(74, 19);
-            this.lbltel.TabIndex = 9;
-            this.lbltel.Text = "Teléfono";
-            // 
-            // lbldir
-            // 
-            this.lbldir.AutoSize = true;
-            this.lbldir.Location = new System.Drawing.Point(53, 212);
-            this.lbldir.Name = "lbldir";
-            this.lbldir.Size = new System.Drawing.Size(83, 19);
-            this.lbldir.TabIndex = 8;
-            this.lbldir.Text = "Dirección";
-            // 
-            // lblamaterno
-            // 
-            this.lblamaterno.AutoSize = true;
-            this.lblamaterno.Location = new System.Drawing.Point(53, 166);
-            this.lblamaterno.Name = "lblamaterno";
-            this.lblamaterno.Size = new System.Drawing.Size(143, 19);
-            this.lblamaterno.TabIndex = 7;
-            this.lblamaterno.Text = "Apellido Materno";
+            this.btnguardacambios.Location = new System.Drawing.Point(160, 274);
+            this.btnguardacambios.Name = "btnguardacambios";
+            this.btnguardacambios.Size = new System.Drawing.Size(169, 64);
+            this.btnguardacambios.TabIndex = 13;
+            this.btnguardacambios.Text = "Guardar Cambios";
+            this.btnguardacambios.UseVisualStyleBackColor = true;
+            this.btnguardacambios.Click += new System.EventHandler(this.btnguardacambios_Click);
             // 
             // lblapaterno
             // 
             this.lblapaterno.AutoSize = true;
-            this.lblapaterno.Location = new System.Drawing.Point(53, 119);
+            this.lblapaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapaterno.Location = new System.Drawing.Point(3, 56);
             this.lblapaterno.Name = "lblapaterno";
-            this.lblapaterno.Size = new System.Drawing.Size(138, 19);
-            this.lblapaterno.TabIndex = 6;
+            this.lblapaterno.Size = new System.Drawing.Size(125, 20);
+            this.lblapaterno.TabIndex = 2;
             this.lblapaterno.Text = "Apellido Paterno";
-            // 
-            // tbxtel
-            // 
-            this.tbxtel.Location = new System.Drawing.Point(216, 252);
-            this.tbxtel.Name = "tbxtel";
-            this.tbxtel.Size = new System.Drawing.Size(185, 27);
-            this.tbxtel.TabIndex = 5;
-            // 
-            // tbxdir
-            // 
-            this.tbxdir.Location = new System.Drawing.Point(216, 209);
-            this.tbxdir.Name = "tbxdir";
-            this.tbxdir.Size = new System.Drawing.Size(185, 27);
-            this.tbxdir.TabIndex = 4;
-            // 
-            // tbxamaterno
-            // 
-            this.tbxamaterno.Location = new System.Drawing.Point(216, 163);
-            this.tbxamaterno.Name = "tbxamaterno";
-            this.tbxamaterno.Size = new System.Drawing.Size(185, 27);
-            this.tbxamaterno.TabIndex = 3;
-            // 
-            // tbxapaterno
-            // 
-            this.tbxapaterno.Location = new System.Drawing.Point(216, 116);
-            this.tbxapaterno.Name = "tbxapaterno";
-            this.tbxapaterno.Size = new System.Drawing.Size(185, 27);
-            this.tbxapaterno.TabIndex = 2;
-            this.tbxapaterno.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
-            // 
-            // tbxname
-            // 
-            this.tbxname.Location = new System.Drawing.Point(216, 70);
-            this.tbxname.Name = "tbxname";
-            this.tbxname.Size = new System.Drawing.Size(185, 27);
-            this.tbxname.TabIndex = 1;
             // 
             // lblname
             // 
             this.lblname.AutoSize = true;
-            this.lblname.Location = new System.Drawing.Point(53, 73);
+            this.lblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblname.Location = new System.Drawing.Point(3, 14);
             this.lblname.Name = "lblname";
-            this.lblname.Size = new System.Drawing.Size(73, 19);
-            this.lblname.TabIndex = 0;
+            this.lblname.Size = new System.Drawing.Size(65, 20);
+            this.lblname.TabIndex = 1;
             this.lblname.Text = "Nombre";
+            // 
+            // tbxtel
+            // 
+            this.tbxtel.Location = new System.Drawing.Point(171, 189);
+            this.tbxtel.Name = "tbxtel";
+            this.tbxtel.Size = new System.Drawing.Size(185, 27);
+            this.tbxtel.TabIndex = 11;
+            // 
+            // tbxname
+            // 
+            this.tbxname.Location = new System.Drawing.Point(171, 11);
+            this.tbxname.Name = "tbxname";
+            this.tbxname.Size = new System.Drawing.Size(185, 27);
+            this.tbxname.TabIndex = 7;
+            // 
+            // lblamaterno
+            // 
+            this.lblamaterno.AutoSize = true;
+            this.lblamaterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblamaterno.Location = new System.Drawing.Point(6, 102);
+            this.lblamaterno.Name = "lblamaterno";
+            this.lblamaterno.Size = new System.Drawing.Size(128, 20);
+            this.lblamaterno.TabIndex = 3;
+            this.lblamaterno.Text = "Apellido Materno";
+            // 
+            // btnagregacli
+            // 
+            this.btnagregacli.Location = new System.Drawing.Point(133, 274);
+            this.btnagregacli.Name = "btnagregacli";
+            this.btnagregacli.Size = new System.Drawing.Size(147, 64);
+            this.btnagregacli.TabIndex = 12;
+            this.btnagregacli.Text = "Agregar Clientes";
+            this.btnagregacli.UseVisualStyleBackColor = true;
+            this.btnagregacli.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // tbxdir
+            // 
+            this.tbxdir.Location = new System.Drawing.Point(171, 143);
+            this.tbxdir.Name = "tbxdir";
+            this.tbxdir.Size = new System.Drawing.Size(185, 27);
+            this.tbxdir.TabIndex = 10;
+            // 
+            // tbxapaterno
+            // 
+            this.tbxapaterno.Location = new System.Drawing.Point(171, 53);
+            this.tbxapaterno.Name = "tbxapaterno";
+            this.tbxapaterno.Size = new System.Drawing.Size(185, 27);
+            this.tbxapaterno.TabIndex = 8;
+            this.tbxapaterno.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
+            // 
+            // lbldir
+            // 
+            this.lbldir.AutoSize = true;
+            this.lbldir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldir.Location = new System.Drawing.Point(3, 146);
+            this.lbldir.Name = "lbldir";
+            this.lbldir.Size = new System.Drawing.Size(75, 20);
+            this.lbldir.TabIndex = 4;
+            this.lbldir.Text = "Dirección";
+            // 
+            // lbltel
+            // 
+            this.lbltel.AutoSize = true;
+            this.lbltel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltel.Location = new System.Drawing.Point(3, 192);
+            this.lbltel.Name = "lbltel";
+            this.lbltel.Size = new System.Drawing.Size(71, 20);
+            this.lbltel.TabIndex = 5;
+            this.lbltel.Text = "Teléfono";
+            // 
+            // tbxamaterno
+            // 
+            this.tbxamaterno.Location = new System.Drawing.Point(171, 99);
+            this.tbxamaterno.Name = "tbxamaterno";
+            this.tbxamaterno.Size = new System.Drawing.Size(185, 27);
+            this.tbxamaterno.TabIndex = 9;
             // 
             // imageList1
             // 
@@ -944,6 +1001,81 @@
             this.imageList1.Images.SetKeyName(2, "inventario.png");
             this.imageList1.Images.SetKeyName(3, "ccaja.png");
             this.imageList1.Images.SetKeyName(4, "cliente.png");
+            // 
+            // codigo
+            // 
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Width = 400;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Descripción";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 400;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            this.cantidad.Width = 330;
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            this.precio.Width = 320;
+            // 
+            // btneliminarproduc
+            // 
+            this.btneliminarproduc.Location = new System.Drawing.Point(362, 107);
+            this.btneliminarproduc.Name = "btneliminarproduc";
+            this.btneliminarproduc.Size = new System.Drawing.Size(146, 44);
+            this.btneliminarproduc.TabIndex = 29;
+            this.btneliminarproduc.Text = "Eliminar Producto";
+            this.btneliminarproduc.UseVisualStyleBackColor = true;
+            this.btneliminarproduc.Click += new System.EventHandler(this.btneliminarproduc_Click);
+            // 
+            // btneliminardepa
+            // 
+            this.btneliminardepa.Location = new System.Drawing.Point(959, 107);
+            this.btneliminardepa.Name = "btneliminardepa";
+            this.btneliminardepa.Size = new System.Drawing.Size(152, 48);
+            this.btneliminardepa.TabIndex = 30;
+            this.btneliminardepa.Text = "Eliminar Departamento";
+            this.btneliminardepa.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(250, 380);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 50);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Eliminar Producto";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(10, 238);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 20);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Saldo Limite";
+            // 
+            // tbxsaldolimite
+            // 
+            this.tbxsaldolimite.Location = new System.Drawing.Point(171, 235);
+            this.tbxsaldolimite.Name = "tbxsaldolimite";
+            this.tbxsaldolimite.Size = new System.Drawing.Size(185, 27);
+            this.tbxsaldolimite.TabIndex = 15;
             // 
             // form1
             // 
@@ -961,7 +1093,7 @@
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "s";
+            this.Text = "Papelería Punto de Venta";
             this.TransparencyKey = System.Drawing.Color.Goldenrod;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.form1_Load_1);
@@ -972,18 +1104,19 @@
             this.ticket1.ResumeLayout(false);
             this.ticket1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tabproductos.ResumeLayout(false);
-            this.paneladddepa.ResumeLayout(false);
-            this.paneladddepa.PerformLayout();
+            this.btneliminarproducto.ResumeLayout(false);
             this.panelmodificar.ResumeLayout(false);
             this.panelmodificar.PerformLayout();
+            this.paneladddepa.ResumeLayout(false);
+            this.paneladddepa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelfproductos.ResumeLayout(false);
             this.panelfproductos.PerformLayout();
             this.tabiventario.ResumeLayout(false);
             this.tabiventario.PerformLayout();
             this.tabcliente.ResumeLayout(false);
-            this.tabcliente.PerformLayout();
+            this.paneladcliente.ResumeLayout(false);
+            this.paneladcliente.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1000,9 +1133,9 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.TabPage tabproductos;
+        private System.Windows.Forms.TabPage btneliminarproducto;
         private System.Windows.Forms.TabPage tabiventario;
         private System.Windows.Forms.TabPage tabcortecaja;
         private System.Windows.Forms.TabPage tabcliente;
@@ -1034,9 +1167,7 @@
         private System.Windows.Forms.Label lbldir;
         private System.Windows.Forms.Label lblamaterno;
         private System.Windows.Forms.Label lblapaterno;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label lblcliente;
-        private System.Windows.Forms.TextBox tbxid;
+        private System.Windows.Forms.Button btnagregacli;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbxcanreg;
         private System.Windows.Forms.TextBox tbxpreventa;
@@ -1047,26 +1178,38 @@
         private System.Windows.Forms.TextBox tbxcode;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxcanactual;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button1adp;
         private System.Windows.Forms.Panel panelfproductos;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button btnaddproducto;
+        protected internal System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelmodificar;
+        private System.Windows.Forms.Button btnmodificarproduc;
+        private System.Windows.Forms.Panel paneladddepa;
+        private System.Windows.Forms.Button btnadddepa;
+        private System.Windows.Forms.Button btncreadepa;
+        private System.Windows.Forms.TextBox tbxnomdepa;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnmodproduct;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnaddcliente;
+        private System.Windows.Forms.Panel paneladcliente;
+        private System.Windows.Forms.Button btnmodcliente;
+        private System.Windows.Forms.Button btnguardacambios;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox tbxmodproduc;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnmodificardepartamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.Button btnaddproducto;
-        protected internal System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panelmodificar;
-        private System.Windows.Forms.TextBox tbxmodproduc;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnmodificarproduc;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Panel paneladddepa;
-        private System.Windows.Forms.Button btnadddepa;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnmodproduct;
+        private System.Windows.Forms.Button btneliminardepa;
+        private System.Windows.Forms.Button btneliminarproduc;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox tbxsaldolimite;
+        private System.Windows.Forms.Label label9;
     }
 }
 

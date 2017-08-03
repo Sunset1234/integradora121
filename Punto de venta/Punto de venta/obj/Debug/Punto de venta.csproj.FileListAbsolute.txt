@@ -20,3 +20,4 @@ C:\Users\Emmanuel\Downloads\integradora121-master\Punto de venta\Punto de venta\
 C:\Users\Emmanuel\Downloads\integradora121-master\Punto de venta\Punto de venta\obj\Debug\Punto de venta.csproj.GenerateResource.Cache
 C:\Users\Emmanuel\Downloads\integradora121-master\Punto de venta\Punto de venta\obj\Debug\Punto de venta.exe
 C:\Users\Emmanuel\Downloads\integradora121-master\Punto de venta\Punto de venta\obj\Debug\Punto de venta.pdb
+C:\Users\Emmanuel\documents\visual studio 2017\Projects\Punto de venta\Punto de venta\obj\Debug\Punto_de_venta.Form2.resources
