@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace Punto_de_venta
 {
@@ -18,196 +19,236 @@ namespace Punto_de_venta
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void form1_Load_1(object sender, EventArgs e) //FORM LOAD
         {
-           
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (radioefectivo.Checked)
+            Timer t = new Timer();
+            t.Start();
+            t.Tick += T_Tick;
+            textBox8.Focus();
+            try
             {
-                DialogResult result = MessageBox.Show("¿Imprimir ticket?", "Ticket", MessageBoxButtons.YesNoCancel);
+                departamento a = new departamento();
+                a.ListaDep();
+                cbxdepart.DataSource = a.getLista();
+                cbxdepart.DisplayMember = "nombre";
+                cbxdepart.ValueMember = "id";
+
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.ToString());
+            }
+
+            try
+            {
+                Bdcomun.ObtenerConexion();
+                string Consulta = "select nombre as 'Nombre',apaterno as 'Apellido Paterno'," +
+                    "amaterno as 'Apellido Materno',direccion as 'Direccion',telefono as 'Telefono', saldo as " +
+                    "'Saldo' from cliente";
+                DataTable dt = new DataTable();
+                MySqlDataAdapter ad = new MySqlDataAdapter(Consulta, Bdcomun.ObtenerConexion());
+                ad.Fill(dt);
+                dgvclientes.DataSource = dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        private void btnaddproducto_Click(object sender, EventArgs e) //BTN PRINCIPAL AGREGAR PRODUCTO
+        {
+            tbxcode.Enabled = true; tbxnombre.Enabled = true; tbxdesc.Enabled = true;
+            cbxdepart.Enabled = true; tbxprecost.Enabled = true; tbxpreventa.Enabled = true;
+            tbxcanactual.Enabled = true; button1adp.Enabled = true;
+            tbxcode.Clear(); tbxnombre.Clear(); tbxdesc.Clear(); tbxprecost.Clear(); tbxpreventa.Clear();
+            tbxcanactual.Clear(); 
+
+            panelfproductos.Show();
+            paneladddepa.Hide();
+            panelmodificar.Hide();
+            tbxcode.Focus();         
+            btnmodproduct.Hide();
+            button2.Hide();
+            button1adp.Show();
+        }
+
+        int modielim = 0; //Modi es igual a 0 eliminar es igual a 1;
+        private void btnmodificarproduc_Click(object sender, EventArgs e)//BTN PRINCIPAL MODIFCAR PRODUCTO
+        {
+            tbxmodproduc.Clear();
+            Form2 f = new Form2();
+            f.Show();
+            f.Location = new Point(590,300);
+            modielim = 0;
+            tbxmodproduc.Clear();
+            paneladddepa.Hide();
+            panelfproductos.Hide();
+            panelmodificar.Show();
+        }
+
+        private void btneliminarproduc_Click(object sender, EventArgs e) // BTN PRINCIPAL ELIMINAR PRODUCTO 
+        {
+            Form2 f = new Form2();
+            f.Show();
+            f.Location = new Point(590, 300);
+            tbxmodproduc.Clear();
+            panelmodificar.Show();
+            panelfproductos.Hide();
+            paneladddepa.Hide();
+            modielim = 1;
+        }
+
+        private void btnadddepa_Click(object sender, EventArgs e) //AGREGAR DEPARTAMENTO
+        {
+            tbxidepa.Text = "Auto Incremento";
+            tbxnomdepa.Clear();
+            tbxnomdepa.Focus();
+            try
+            {
+                paneladddepa.Show();
+                panelfproductos.Hide();
+                panelmodificar.Hide();
+
+                Bdcomun.ObtenerConexion();
+                string Consulta = "select nombre,iddepartamento from departamento";
+                DataTable dt = new DataTable();
+                MySqlDataAdapter ad = new MySqlDataAdapter(Consulta, Bdcomun.ObtenerConexion());
+                ad.Fill(dt);
+                dgvdepartamentos.DataSource = dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+      
+        private void button1_Click_1(object sender, EventArgs e) //INSERTAR PRODUCTO EN BD
+        {
+            producto pProducto = new producto();
+            pProducto.Codebar = tbxcode.Text.ToString();
+            pProducto.Nombre = tbxnombre.Text.ToString();
+            pProducto.Descripcion = tbxdesc.Text.ToString();
+            pProducto.Cantactual = int.Parse(tbxcanactual.Text);
+            pProducto.Precosto = double.Parse(tbxprecost.Text);
+            pProducto.Preventa = double.Parse(tbxpreventa.Text);
+            pProducto.Departamento = int.Parse(cbxdepart.SelectedValue.ToString());
+
+            int resultado = Comandos.AgregarProductos(pProducto);
+            if (resultado > 0)
+            {
+                MessageBox.Show("¡Producto guardado con exito!");
             }
             else
             {
-                MessageBox.Show("CLIENTE REGISTRADO");
+                MessageBox.Show("No se pudo guardar el cliente");
             }
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnmodproduct_Click(object sender, EventArgs e) //MODIFICAR PRODUCTO EN BD
         {
+            button2.Hide();
+            button1adp.Hide();
+            producto pProducto = new producto();
+            pProducto.Codebar = tbxcode.Text.ToString();
+            pProducto.Nombre = tbxnombre.Text.ToString();
+            pProducto.Descripcion = tbxdesc.Text.ToString();
+            pProducto.Cantactual = int.Parse(tbxcanactual.Text);
+            pProducto.Precosto = double.Parse(tbxprecost.Text);
+            pProducto.Preventa = double.Parse(tbxpreventa.Text);
+            pProducto.Departamento = int.Parse(cbxdepart.SelectedValue.ToString());
+
+            int resultado = Comandos.ActualizarProducto(pProducto);
+            if (resultado > 0)
+            {
+                MessageBox.Show("¡Producto actualizado con exito!");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo guardar el cliente");
+            }
+
 
         }
 
-        private void label11_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e) //ELIMINAR PRODUCTO EN BD
         {
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(string.Format(
+                " DELETE FROM `puntodeventa`.`productos` WHERE `idproducto`= '" + tbxcode.Text.ToString() + "';")
+                , Bdcomun.ObtenerConexion());
+                comando.ExecuteNonQuery();
+                MessageBox.Show("!Producto Eliminado correctamente¡");
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.ToString());
+
+            }
+        }
+
+        private void btncreadepa_Click(object sender, EventArgs e) // CREAR DEPARTAMENTO EN BD
+        {
+            departamento dDepartamento = new departamento();
+            dDepartamento.Nombre = tbxnomdepa.Text.ToString();
+
+            int resultado = Comandos.AgregarDepartamento(dDepartamento);
+            if (resultado > 0)
+            {
+                MessageBox.Show("¡Departamento guardado con exito!");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo guardar el cliente");
+            }
 
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
+        private void button1_Click_2(object sender, EventArgs e) //MODIFICAR DEPARTAMENTO EN LA BD
         {
 
-        }
+            departamento dDepartamento = new departamento();
 
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+            dDepartamento.Id = int.Parse(tbxidepa.Text);
+            dDepartamento.Nombre = tbxnomdepa.Text.ToString();
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Bdcomun.ObtenerConexion();
-            MessageBox.Show("conectado");
-        }
-
-        private void textBox14_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        
-        private void button2_Click(object sender, EventArgs e)
-        {
-            cliente Pcliente = new cliente();
-          
-            Pcliente.Nombre = tbxname.Text;
-            Pcliente.Apaterno = tbxamaterno.Text;
-            Pcliente.Amaterno = tbxapaterno.Text;
-            Pcliente.Dirección = tbxdir.Text;
-            Pcliente.Telefono = int.Parse(tbxtel.Text);
-
-            
-            int resultado = Comandos.AgregarCliente(Pcliente);
+            int resultado = Comandos.ActualizarDepartamento(dDepartamento);
             if (resultado > 0)
             {
                 MessageBox.Show("¡Cliente guardado con exito!");
             }
-            else {
+            else
+            {
                 MessageBox.Show("No se pudo agregar el cliente");
             }
-
         }
 
-        private void label16_Click(object sender, EventArgs e)
+        private void btneliminardepa_Click(object sender, EventArgs e)//ELIMINAR DEPARTAMENTO EN LA BD
         {
-
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(string.Format(
+                " DELETE FROM `puntodeventa`.`departamento` WHERE `iddepartamento`= '" + tbxidepa.Text.ToString() + "';")
+                , Bdcomun.ObtenerConexion());
+                comando.ExecuteNonQuery();
+                MessageBox.Show("!Departamento Eliminado correctamente¡");
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.ToString());
+            }
         }
 
-        private void lblprecosto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnaddprod_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-                producto pProducto = new producto();
-                pProducto.Codebar = tbxcode.Text.ToString();
-                pProducto.Nombre = tbxnombre.Text.ToString();
-                pProducto.Descripcion = tbxdesc.Text.ToString();
-                pProducto.Cantactual = int.Parse(tbxcanactual.Text);
-                pProducto.Precosto = double.Parse(tbxprecost.Text);
-                pProducto.Preventa = double.Parse(tbxpreventa.Text);
-                pProducto.Departamento = int.Parse(cbxdepart.SelectedValue.ToString());
-
-                int resultado = Comandos.AgregarProductos(pProducto);
-                if (resultado > 0)
-                {
-                    MessageBox.Show("¡Producto guardado con exito!");
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo guardar el cliente");
-                }
-        }
-
-        private void cbxdepart_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblcantregistro_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabControl2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-
-        private void form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void btnaddproducto_Click(object sender, EventArgs e)
-        {
-            paneladddepa.Hide();
-            tbxcode.Focus();
-            panelmodificar.Hide();
-            btnmodproduct.Hide();
-            button1adp.Show();
-            panelfproductos.Show();
-        }
-
-        private void btnaddproducto_MouseHover(object sender, EventArgs e)
-        {
-
-        }
-
-        int modielim = 0; //Modi es igual a 0 eliminar es igual a 1;
-        private void btnmodificarproduc_Click(object sender, EventArgs e)
-        {
-            modielim = 0;
-            tbxmodproduc.Clear();
-            panelmodificar.Show();
-            paneladddepa.Hide();
-            panelfproductos.Hide();
-        }
-
-
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e) //BUSCAR PRODUCTO EN BD PARA MODIFICAR Y O ELIMINAR
         {
             if (modielim == 0)
             {
-                button1adp.Hide();
-                btnmodproduct.Visible = true;
                 try
                 {
                     Bdcomun.ObtenerConexion();
@@ -235,9 +276,19 @@ namespace Punto_de_venta
                     }
                     else
                     {
+                        tbxcode.Clear(); tbxnombre.Clear(); tbxdesc.Clear(); tbxprecost.Clear(); tbxpreventa.Clear();
+                        tbxcanactual.Clear();
+                        tbxcode.Enabled = true; tbxnombre.Enabled = true; tbxdesc.Enabled = true;
+                        cbxdepart.Enabled = true; tbxprecost.Enabled = true; tbxpreventa.Enabled = true;
+                        tbxcanactual.Enabled = true; btnmodproduct.Enabled = true;
+                        tbxcode.Clear(); tbxnombre.Clear(); tbxdesc.Clear(); tbxprecost.Clear(); tbxpreventa.Clear();
+                        tbxcanactual.Clear();
+
+                        button1adp.Hide();
+                        button2.Hide();
                         panelmodificar.Hide();
                         panelfproductos.Show();
-
+                        btnmodproduct.Show();
                     }
                 }
                 catch (Exception)
@@ -247,8 +298,6 @@ namespace Punto_de_venta
             }
             else if (modielim == 1)
             {
-                button1adp.Hide();
-                button2.Show();
                 try
                 {
                     Bdcomun.ObtenerConexion();
@@ -261,7 +310,7 @@ namespace Punto_de_venta
 
                     while (reader.Read())
                     {
-                        tbxcode.Text = reader["idproducto"].ToString(); 
+                        tbxcode.Text = reader["idproducto"].ToString();
                         tbxnombre.Text = reader["nombre"].ToString();
                         tbxdesc.Text = reader["descripcion"].ToString();
                         cbxdepart.Text = reader["nombred"].ToString();
@@ -269,10 +318,10 @@ namespace Punto_de_venta
                         tbxpreventa.Text = reader["precioventa"].ToString();
                         tbxcanactual.Text = reader["cantidadstock"].ToString();
                         tbxcode.Enabled = false; tbxnombre.Enabled = false; tbxdesc.Enabled = false;
-                        cbxdepart.Enabled = false;tbxprecost.Enabled = false;tbxpreventa.Enabled = false;
+                        cbxdepart.Enabled = false; tbxprecost.Enabled = false; tbxpreventa.Enabled = false;
                         tbxcanactual.Enabled = false;
                         button2.Enabled = true;
-                        
+
                     }
                     reader.Close();
                     if (tbxcode.Text == "")
@@ -283,7 +332,10 @@ namespace Punto_de_venta
                     {
                         panelmodificar.Hide();
                         panelfproductos.Show();
-
+                        paneladddepa.Hide();
+                        button1adp.Hide();
+                        btnmodproduct.Hide();
+                        button2.Show();
                     }
                 }
                 catch (Exception)
@@ -293,92 +345,61 @@ namespace Punto_de_venta
             }
         }
 
-        private void panelfproductos_Paint(object sender, PaintEventArgs e)
+        private void T_Tick(object sender, EventArgs e) //EVENTO TICK DEL TIMER PARA LA HORA
         {
-
+            lbltime.Text = DateTime.Now.ToString();
         }
 
-        private void btnadddepa_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //COBRAR EFECTIVO
         {
-            paneladddepa.Show();
-            panelfproductos.Hide();
-            panelmodificar.Hide();
-        }
-
-        private void btnmodproduct_Click(object sender, EventArgs e)
-        {
-            producto pProducto = new producto();
-            pProducto.Codebar = tbxcode.Text.ToString();
-            pProducto.Nombre = tbxnombre.Text.ToString();
-            pProducto.Descripcion = tbxdesc.Text.ToString();
-            pProducto.Cantactual = int.Parse(tbxcanactual.Text);
-            pProducto.Precosto = double.Parse(tbxprecost.Text);
-            pProducto.Preventa = double.Parse(tbxpreventa.Text);
-            pProducto.Departamento = int.Parse(cbxdepart.SelectedValue.ToString());
-
-            int resultado = Comandos.ActualizarProducto(pProducto);
-            if (resultado > 0)
+            if (radioefectivo.Checked)
             {
-                MessageBox.Show("¡Producto actualizado con exito!");
+                DialogResult result = MessageBox.Show("¿Imprimir ticket?", "Ticket", MessageBoxButtons.YesNoCancel);
             }
             else
             {
-                MessageBox.Show("No se pudo guardar el cliente");
-            }
-
-         
-        }
-
-        private void form1_Load_1(object sender, EventArgs e) //FORM LOAD
-        {
-
-            try
-            {
-                departamento a = new departamento();
-                a.ListaDep();
-                cbxdepart.DataSource = a.getLista();
-                cbxdepart.DisplayMember = "nombre";
-                cbxdepart.ValueMember = "id";
-
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show(a.ToString());
+                MessageBox.Show("CLIENTE REGISTRADO");
             }
         }
 
-        private void btncreadepa_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //BTN GUARDAR CLIENTES EN BD
         {
-            departamento dDepartamento = new departamento();
-            dDepartamento.Nombre=tbxnomdepa.Text.ToString();
+            cliente Pcliente = new cliente();
 
-            int resultado = Comandos.AgregarDepartamento(dDepartamento);
+            Pcliente.Nombre = tbxname.Text;
+            Pcliente.Apaterno = tbxamaterno.Text;
+            Pcliente.Amaterno = tbxapaterno.Text;
+            Pcliente.Dirección = tbxdir.Text;
+            Pcliente.Telefono = tbxtel.Text;
+
+
+            int resultado = Comandos.AgregarCliente(Pcliente);
             if (resultado > 0)
             {
-                MessageBox.Show("¡Departamento guardado con exito!");
+                MessageBox.Show("¡Cliente guardado con exito!");
             }
             else
             {
-                MessageBox.Show("No se pudo guardar el cliente");
+                MessageBox.Show("No se pudo agregar el cliente");
             }
 
         }
 
-        private void btnaddcliente_Click(object sender, EventArgs e)
+        private void btnaddcliente_Click(object sender, EventArgs e) //BTN PRINCIPAL AGREGAR CLIENTE
         {
             paneladcliente.Show();
             btnguardacambios.Hide();
             btnagregacli.Show();
         }
 
-        private void btnmodcliente_Click(object sender, EventArgs e)
+        private void btnmodcliente_Click(object sender, EventArgs e) //BTN PRINCIPAL MODIFICAR CLIENTE
         {
             paneladcliente.Show();
             btnagregacli.Hide();
             btnguardacambios.Show();
         }
 
-        private void btnguardacambios_Click(object sender, EventArgs e)
+        private void btnguardacambios_Click(object sender, EventArgs e) //BTN UPDATE BD MODIFICAR CLIENTE
         {
             cliente Pcliente = new cliente();
             
@@ -387,7 +408,7 @@ namespace Punto_de_venta
             Pcliente.Apaterno = tbxamaterno.Text;
             Pcliente.Amaterno = tbxapaterno.Text;
             Pcliente.Dirección = tbxdir.Text;
-            Pcliente.Telefono = int.Parse(tbxtel.Text);
+            Pcliente.Telefono = tbxtel.Text;
 
 
             int resultado = Comandos.AgregarCliente(Pcliente);
@@ -401,52 +422,15 @@ namespace Punto_de_venta
             }
         }
 
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            listBox1.Show();
-            paneladddepa.Hide();
-            try
-            {
-                departamento a = new departamento();
-                a.ListaDep();
-                listBox1.DataSource = a.getLista();
-                listBox1.DisplayMember = "nombre";
-                listBox1.ValueMember = "id";
 
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show(a.ToString());
-            }
-          
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        List<departamento> ldselecc = new List<departamento>();
-        private void btnmodificardepartamento_Click(object sender, EventArgs e)
-        {
-            ldselecc = listBox1.SelectedItems.Cast<departamento>().ToList();
-
-            tbxnomdepa.Text = "holi";
-            paneladddepa.Show();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnbuscar_Click(object sender, EventArgs e)
-        {
+        string code, desc, preve; double stotal = 0;
+        private void btnbuscar_Click(object sender, EventArgs e) //BUSCAR PRODUCTOS EN BD PARA COBRARLOS
+        {        
             try
             {
                 Bdcomun.ObtenerConexion();
 
-                string Consulta = "select idproducto ,descripcion,precioventa from productos where idproducto='"+textBox8.Text.ToString()+"'";
+                string Consulta = "select idproducto ,descripcion, precioventa from productos where idproducto='"+textBox8.Text.ToString()+"'";
                 MySqlCommand mycomand = new MySqlCommand();
                 mycomand.Connection = Bdcomun.ObtenerConexion();
                 mycomand.CommandText = Consulta;
@@ -454,44 +438,46 @@ namespace Punto_de_venta
 
                 while (reader.Read())
                 {
-                    string code = reader["idproducto"].ToString();
-                    string desc = reader["descripcion"].ToString();
-                    string preve = reader["precioventa"].ToString();
+                    code = reader["idproducto"].ToString();
+                    desc = reader["descripcion"].ToString();
+                    preve = reader["precioventa"].ToString();
                     dataGridView2.Rows.Add(code, desc,"1",preve);
+                    stotal += double.Parse(preve);
+                    lblcostotot.Text = stotal.ToString();
                 }
                 reader.Close();
             }
-            catch (Exception)
+            catch (Exception a)
             {
-
-                throw;
+                MessageBox.Show(a.ToString());
             }
+            textBox8.Clear();
+            
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //Actualizar DGV con la lista de Departamentos
+        {
+            Bdcomun.ObtenerConexion();
+            string Consulta = "select nombre,iddepartamento from departamento";
+            DataTable dt = new DataTable();
+            MySqlDataAdapter ad = new MySqlDataAdapter(Consulta, Bdcomun.ObtenerConexion());
+            ad.Fill(dt);
+            dgvdepartamentos.DataSource = dt;
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btneliminarproduc_Click(object sender, EventArgs e)
-        {
-            panelmodificar.Show();
-            modielim = 1;
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
+        private void bnteliminarclientedb_Click(object sender, EventArgs e)
         {
             try
             {
                 MySqlCommand comando = new MySqlCommand(string.Format(
-                " DELETE FROM `puntodeventa`.`productos` WHERE `idproducto`= '" + tbxcode.Text.ToString() + "';")
+                " DELETE FROM `puntodeventa`.`cliente` WHERE `idproducto`= '" + tbxcode.Text.ToString() + "';")
                 , Bdcomun.ObtenerConexion());
-                 comando.ExecuteNonQuery();
+                comando.ExecuteNonQuery();
                 MessageBox.Show("!Producto Eliminado correctamente¡");
             }
             catch (Exception a)
@@ -499,9 +485,22 @@ namespace Punto_de_venta
                 MessageBox.Show(a.ToString());
 
             }
-          
-
-
         }
+
+        private void dgvclientes_MouseClick(object sender, MouseEventArgs e) //DGV CLIENTE SELECCIONAR CELDA 
+        {
+            tbxname.Text = dgvclientes.CurrentRow.Cells[0].Value.ToString();
+            tbxapaterno.Text = dgvclientes.CurrentRow.Cells[1].Value.ToString();
+            tbxamaterno.Text = dgvclientes.CurrentRow.Cells[2].Value.ToString();
+            tbxdir.Text = dgvclientes.CurrentRow.Cells[3].Value.ToString();
+            tbxtel.Text = dgvclientes.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void dgvdepartamentos_MouseClick(object sender, MouseEventArgs e) //DGV PRODUCTOS SELECCIONAR CELDA
+        {
+            tbxidepa.Text = dgvdepartamentos.CurrentRow.Cells[1].Value.ToString();
+            tbxnomdepa.Text = dgvdepartamentos.CurrentRow.Cells[0].Value.ToString();
+        }
+
     }
 }

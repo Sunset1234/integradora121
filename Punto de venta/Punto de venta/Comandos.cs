@@ -63,6 +63,15 @@ namespace Punto_de_venta
             return retorno;
         }
 
+        public static int ActualizarDepartamento(departamento dDepartamento)
+        {
+            int retorno = 0;
+            MySqlCommand comando = new MySqlCommand(string.Format("UPDATE `puntodeventa`.`departamento` SET `iddepartamento`= '" + dDepartamento.Id +
+                "', `nombre`= '" + dDepartamento.Nombre + "' WHERE `iddepartamento`= '" + dDepartamento.Id + "'"), Bdcomun.ObtenerConexion());
+            comando.ExecuteNonQuery();
+            return retorno;
+        }
+
 
 
     }

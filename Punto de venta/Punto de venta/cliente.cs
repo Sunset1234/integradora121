@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Punto_de_venta
 {
@@ -48,9 +50,9 @@ namespace Punto_de_venta
             set { dirección = value; }
         }
 
-        private int telefono;
+        private string telefono;
 
-        public int Telefono
+        public string Telefono
         {
             get { return telefono; }
             set { telefono = value; }
@@ -67,7 +69,7 @@ namespace Punto_de_venta
 
         public cliente() { }
 
-        public cliente(int Pid,string Pnombre, string Papaterno, string Pamaterno, string Pdir, int tel)
+        public cliente(int Pid,string Pnombre, string Papaterno, string Pamaterno, string Pdir, string tel)
         {
             this.idcliente = Pid;
             this.nombre = Pnombre;
